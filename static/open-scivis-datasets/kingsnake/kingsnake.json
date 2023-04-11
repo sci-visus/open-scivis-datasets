@@ -1,0 +1,19 @@
+{
+    "name": "Kingsnake",
+    "type": "uint8",
+    "size": [
+        1024,
+        1024,
+        795
+    ],
+    "spacing": [
+        0.03174,
+        0.03174,
+        0.0688
+    ],
+    "sha512sum": "b1c3a9354347da8c6cbca1f218deac4225e6a0f46c771b095e69ea195eee88cd0bdf91f3f71c97566463c2c4c45b4028d7015f13a798ef65673b27fb2869523e",
+    "description": "Scan of a Lampropeltis getula egg (captive bred by Travis LaDuc; laid on 7 July 2003, growth terminated on 29 August 2003, 54 days after oviposition) for Dr. Timothy Rowe of the Department of Geological Sciences, The University of Texas at Austin.",
+    "acknowledgement": "DigiMorph.org, The University of Texas High-Resolution X-ray CT Facility (UTCT), and NSF grant IIS-9874781",
+    "url": "https://klacansky.com/open-scivis-datasets/kingsnake/kingsnake_1024x1024x795_uint8.raw",
+    "category": "ct"
+}

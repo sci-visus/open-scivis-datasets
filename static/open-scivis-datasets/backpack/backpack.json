@@ -1,0 +1,19 @@
+{
+    "name": "Backpack Scan",
+    "type": "uint16",
+    "size": [
+        512,
+        512,
+        373
+    ],
+    "spacing": [
+        0.9766,
+        0.9766,
+        1.25
+    ],
+    "sha512sum": "f929fb231367792b260db6de2214fb64a27785870f472503930cf34c6cc7b1c22603c1eb2164381ec1f799c8e1040a151edca4e094d2ed1cbfc70a85d4f1eba8",
+    "description": "CT scan of a backpack filled with items.",
+    "acknowledgement": "volvis.org and Kevin Kreeger, Viatronix Inc., USA",
+    "url": "https://klacansky.com/open-scivis-datasets/backpack/backpack_512x512x373_uint16.raw",
+    "category": "ct"
+}

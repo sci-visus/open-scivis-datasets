@@ -1,0 +1,19 @@
+{
+    "name": "Stag Beetle",
+    "type": "uint16",
+    "size": [
+        832,
+        832,
+        494
+    ],
+    "spacing": [
+        1,
+        1,
+        1
+    ],
+    "sha512sum": "1d3df55497bedb01a3a3d902d00241d1dc41a2c3d186005c5457244a7a0783c9fbc5be1b9cf75634aed0dbcaff599d66d9638e40bc9fb788a575ce3cd356860a",
+    "description": "The stag beetle from Georg Glaeser, Vienna University of Applied Arts, Austria, was scanned with an industrial CT by Johannes Kastner, Wels College of Engineering, Austria, and Meister Eduard Gr\u00f6ller, Vienna University of Technology, Austria.",
+    "acknowledgement": "Meister Eduard Gr\u00f6ller, Georg Glaeser, Johannes Kastner, 2005",
+    "url": "https://klacansky.com/open-scivis-datasets/stag_beetle/stag_beetle_832x832x494_uint16.raw",
+    "category": "ct"
+}

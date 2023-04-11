@@ -1,0 +1,19 @@
+{
+    "name": "Pawpawsaurus Campbelli",
+    "type": "uint16",
+    "size": [
+        958,
+        646,
+        1088
+    ],
+    "spacing": [
+        0.2275,
+        0.2275,
+        0.2275
+    ],
+    "sha512sum": "5614403591778244d07814a17469961e819801a3cdcf140d7eca433485b82621879a780dae2ab8783da19007c061c38a47e32070d90d8ce91a619e98dc48724d",
+    "description": "This specimen, the holotype, was collected from the Paw Paw Formation, SMU Loc. No. 263, Tarrant County, Texas. The specimen was scanned along the coronal axis for a total of 1088 slices. Voxel size is 0.2275 mm.",
+    "acknowledgement": "Matthew Colbert, 4 February 2014",
+    "url": "https://klacansky.com/open-scivis-datasets/pawpawsaurus/pawpawsaurus_958x646x1088_uint16.raw",
+    "category": "ct"
+}

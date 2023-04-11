@@ -1,0 +1,19 @@
+{
+    "name": "Lobster",
+    "type": "uint8",
+    "size": [
+        301,
+        324,
+        56
+    ],
+    "spacing": [
+        1,
+        1,
+        1.4
+    ],
+    "sha512sum": "efb1c15bfda13b6899b923d2c51caea00d2eaffb95d89343e64298266d231a12902e376353d5c258a6ccffd54c363bc186aea19de631982f85158a4b70e0e671",
+    "description": "CT scan of a lobster contained in a block of resin.",
+    "acknowledgement": "volvis.org and VolVis distribution of SUNY Stony Brook, NY, USA",
+    "url": "https://klacansky.com/open-scivis-datasets/lobster/lobster_301x324x56_uint8.raw",
+    "category": "ct"
+}

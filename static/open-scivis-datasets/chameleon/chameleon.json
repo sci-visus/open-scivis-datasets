@@ -1,0 +1,19 @@
+{
+    "name": "Chameleon",
+    "type": "uint16",
+    "size": [
+        1024,
+        1024,
+        1080
+    ],
+    "spacing": [
+        0.09228515625,
+        0.09228515625,
+        0.105
+    ],
+    "sha512sum": "61c0309e87416d7ae6adf06bc11af969c8093a10b0a112caba5c6a672b40eac6aa81a9af20f33e00ef19c9d04493bc2fe37233e48f820b56be211b6d99e49ec3",
+    "description": "CT scan of a chameleon.",
+    "acknowledgement": "Chamaeleo calyptratus. Digital Morphology, 2003.",
+    "url": "https://klacansky.com/open-scivis-datasets/chameleon/chameleon_1024x1024x1080_uint16.raw",
+    "category": "ct"
+}

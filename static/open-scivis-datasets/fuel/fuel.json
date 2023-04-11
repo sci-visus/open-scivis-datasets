@@ -1,0 +1,19 @@
+{
+    "name": "Fuel",
+    "type": "uint8",
+    "size": [
+        64,
+        64,
+        64
+    ],
+    "spacing": [
+        1,
+        1,
+        1
+    ],
+    "sha512sum": "77fdd7c657da1946bafc84e88c6b8a03ae104a79a5bdec3c7db9257480ef4bf72551a08d22fd237c8e387dd2571b575f1a1a11f5f32b1fa4d4ef385d9fe1d613",
+    "description": "Simulation of fuel injection into a combustion chamber. The higher the density value, the less presence of air.",
+    "acknowledgement": "volvis.org and SFB 382 of the German Research Council (DFG)",
+    "url": "https://klacansky.com/open-scivis-datasets/fuel/fuel_64x64x64_uint8.raw",
+    "category": "simulation"
+}

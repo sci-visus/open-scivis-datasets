@@ -1,0 +1,19 @@
+{
+    "name": "Marschner-Lobb",
+    "type": "uint8",
+    "size": [
+        41,
+        41,
+        41
+    ],
+    "spacing": [
+        1,
+        1,
+        1
+    ],
+    "sha512sum": "608d19d1e53c8ac3fd4d3d5b230b43c129452bb8f9edccc33d7161c1644f871e0a92572c1215f7eb1a96f801e46221fc809a618c38fd1b66f63e063a3f133186",
+    "description": "High frequencies where 99% of the sinusoids are right below the Nyquist frequency.",
+    "acknowledgement": "volvis.org and Marschner and Lobb",
+    "url": "https://klacansky.com/open-scivis-datasets/marschner_lobb/marschner_lobb_41x41x41_uint8.raw",
+    "category": "simulation"
+}

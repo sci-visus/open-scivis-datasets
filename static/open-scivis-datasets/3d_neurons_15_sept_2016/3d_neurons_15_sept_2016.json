@@ -1,0 +1,19 @@
+{
+    "name": "3DNeurons15Sept2016",
+    "type": "uint16",
+    "size": [
+        2048,
+        2048,
+        1718
+    ],
+    "spacing": [
+        0.267345,
+        0.267345,
+        0.5
+    ],
+    "sha512sum": "d70e869662ca81ac3c8b8eafe9eb415b8b78edb417a7c84a5cc51906ec4f3f7de8c1ff1bf676a04b7c6e06ca7d033177ecd8526efe95aced3021d83c08dbd8fe",
+    "description": "The neurons are macaque visual cortical neurons labeled with TdTomato fluorescent proteins.",
+    "acknowledgement": "Alessandra Angelucci and Frederick Federer. This work was supported by grants from the National Institute of Health (NEI R01 EY019743 and R01 EY026812), the National Science Foundation (EAGER 1649923).",
+    "url": "https://klacansky.com/open-scivis-datasets/3d_neurons_15_sept_2016/3d_neurons_15_sept_2016_2048x2048x1718_uint16.raw",
+    "category": "microscope"
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Hydrogen Atom",
+    "type": "uint8",
+    "size": [
+        128,
+        128,
+        128
+    ],
+    "spacing": [
+        1,
+        1,
+        1
+    ],
+    "sha512sum": "bc80b55ffc983f41b3981433707b59f6c8b3f16cc9cd3ea18087cb9e734b702eb1ad0410f36f38881b2e2fa85617dc0858bb2d9fbd3188abb39af43ea84e3521",
+    "description": "Simulation of the spatial probability distribution of the electron in an hydrogen atom, residing in a strong magnetic field.",
+    "acknowledgement": "volvis.org and SFB 382 of the German Research Council (DFG)",
+    "url": "https://klacansky.com/open-scivis-datasets/hydrogen_atom/hydrogen_atom_128x128x128_uint8.raw",
+    "category": "simulation"
+}

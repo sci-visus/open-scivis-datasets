@@ -1,0 +1,19 @@
+{
+    "name": "Shockwave",
+    "type": "uint8",
+    "size": [
+        64,
+        64,
+        512
+    ],
+    "spacing": [
+        1,
+        1,
+        1
+    ],
+    "sha512sum": "b483bdee37e943e284e146ec2097ed6f263f19e5007916e3eff7e1ad5f8ecd99db4419cd5eedff236c22727bc2f920fb7dab28ff8e8de4c64866c3efb4e33e6d",
+    "description": "Simulation of an unsteady interaction of a planar shockwave with a randomly-perturbed contact discontinuity.",
+    "acknowledgement": "volvis.org",
+    "url": "https://klacansky.com/open-scivis-datasets/shockwave/shockwave_64x64x512_uint8.raw",
+    "category": "simulation"
+}

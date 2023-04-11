@@ -1,0 +1,19 @@
+{
+    "name": "Tooth",
+    "type": "uint8",
+    "size": [
+        103,
+        94,
+        161
+    ],
+    "spacing": [
+        1,
+        1,
+        1
+    ],
+    "sha512sum": "5ee3d77ae951e129d29062a4fd4d8730fd8670bdaf4d01ddf907848072180cbfea8ab897880147d2a79dc7f1d1806a34b32853074eca88f6758e01382469f9f6",
+    "description": "",
+    "acknowledgement": "",
+    "url": "https://klacansky.com/open-scivis-datasets/tooth/tooth_103x94x161_uint8.raw",
+    "category": "unknown"
+}

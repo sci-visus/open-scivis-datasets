@@ -1,0 +1,19 @@
+{
+    "name": "Christmas Present",
+    "type": "uint16",
+    "size": [
+        492,
+        492,
+        442
+    ],
+    "spacing": [
+        1,
+        1,
+        1
+    ],
+    "sha512sum": "a5c1ab3e465d8653e2c089fb343d48e9f3a871a37d1a9fce62a1282f7492b3f3303e20373f6adc7157ed192491b751b59cdeabf8076df9381ffbde460c07c97e",
+    "description": "An industrial CT scan of a christmas present.",
+    "acknowledgement": "Christoph Heinzl, 2006",
+    "url": "https://klacansky.com/open-scivis-datasets/present/present_492x492x442_uint16.raw",
+    "category": "ct"
+}

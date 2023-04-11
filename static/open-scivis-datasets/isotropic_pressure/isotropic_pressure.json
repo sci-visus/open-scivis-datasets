@@ -1,0 +1,19 @@
+{
+    "name": "Forced Isotropic Turbulence",
+    "type": "float32",
+    "size": [
+        4096,
+        4096,
+        4096
+    ],
+    "spacing": [
+        1,
+        1,
+        1
+    ],
+    "sha512sum": "742831ea384d7dd30fcbfce0383959d3389761a1612acacabbaa2d8532bfc734d32169dce89acaad5ba72185d465eceb62a8b8dfb60c48eeb403810bd98c8a3d",
+    "description": "Pressure field of a direct numerical simulation of forced isotropic turbulence.",
+    "acknowledgement": "The Johns Hopkins Turbulence Databases; Yeung, P.K., D.A. Donzis, and K.R. Sreenivasan. (2012) Dissipation, enstrophy and pressure statistics in turbulence simulations at high Reynolds numbers. Journal of Fluid Mechanics 700, 5-15.",
+    "url": "https://klacansky.com/open-scivis-datasets/isotropic_pressure/isotropic_pressure_4096x4096x4096_float32.raw",
+    "category": "simulation"
+}

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A collection of open scientific visualization data sets.">
+<title>Open Scientific Visualization Datasets</title>
+
+<script type="module">
+import * as dvr from './dvr.js'
+import Module from './zfp.js'
+
+
+function
+Viewer(canvas)
+{
+	this.arcballCircle = {
+		center: {x: canvas.width/2, y: canvas.height/2},
+		radius: Math.min(canvas.width/2, canvas.height/2),
+	}
+
+	let p0
+	let q_down
+
+	canvas.addEventListener('mousedown', e => {
+		if (!(e.buttons & 1)) {
+			return
+		}
+
+		q_down = this.q
+		const rect = canvas.getBoundingClientRect()
+		p0 = arcball_screenToSphere(this.arcballCircle, e.clientX - rect.left, e.clientY - rect.top)
+	})
+	canvas.addEventListener('mousemove', e => {
+		if (!(e.buttons & 1)) {
+			return
+		}
+
+		const rect = canvas.getBoundingClientRect()
+		const p1 = arcball_screenToSphere(this.arcballCircle, e.clientX - rect.left, e.clientY - rect.top)
+		const q_move = arcball_quat(p0, p1)
+
+		this.q = quatMul(q_move, q_down)
+
+		this.viewMatrix = quatToMat4(this.q)
+		this.viewMatrix[14] = -this.viewDistance;
+
+		this.render()
+	})
+	canvas.addEventListener('wheel', e => {
+		e.preventDefault()
+
+		this.viewDistance = Math.max(1, this.viewDistance + 0.1*Math.sign(e.deltaY))
+		this.viewMatrix[14] = -this.viewDistance;
+
+		this.render()
+	})
+
+
+	this.gl = canvas.getContext('webgl2', {alpha: false, antialias: false, depth: false, stencil: false})
+	if (!this.gl) {
+		console.log('WebGL: version 2 not available')
+		alert('WebGL 2 is not available')
+	}
+
+	let context = this.gl.getExtension('WEBGL_lose_context')
+
+	// handle context loss and restore
+	canvas.addEventListener('webglcontextlost', e => {
+		console.log('WebGL: lost context')
+		e.preventDefault()
+	})
+	canvas.addEventListener('webglcontextrestored', () => {
+		console.log('WebGL: restored context')
+		this.renderer = new dvr.Renderer()
+
+		if (this.currentDataSet) {
+			this.renderer.uploadData(this.currentDataSet['typedArray'], this.currentDataSet['width'], this.currentDataSet['height'], this.currentDataSet['depth'], this.currentDataSet['boxWidth'], this.currentDataSet['boxHeight'], this.currentDataSet['boxDepth'])
+		}
+
+		this.render()
+	})
+
+	this.isovalue = function(value) {
+		console.assert(0 <= value && value <= 1, 'Isovalue must be in [0, 1] range.')
+		this.isovalue_ = value
+		this.render()
+	}
+
+	this.box = function(low, high) {
+		this.boxLow = low
+		this.boxHigh = high
+		this.render()
+	}
+
+	// setup scene
+	{
+		const nearPlane = 0.01
+		const farPlane = 1000.0
+		this.q = quat(1.0, 0.0, 0.0, 0.0)
+		this.viewDistance = 1.5
+		this.viewMatrix = new Float32Array([
+			1.0, 0.0, 0.0, 0.0,
+			0.0, 1.0, 0.0, 0.0,
+			0.0, 0.0, 1.0, 0.0,
+			0.0, 0.0, -this.viewDistance, 1.0,
+		])
+		this.projectionMatrix = new Float32Array([
+			1.0, 0.0, 0.0, 0.0,
+			0.0, 1.0, 0.0, 0.0,
+			0.0, 0.0, -(farPlane + nearPlane)/(farPlane - nearPlane), -1.0,
+			0.0, 0.0, -2.0*farPlane*nearPlane/(farPlane - nearPlane), 0.0,
+		])
+		this.isovalue_ = 0.0
+		this.boxLow = [0.0, 0.0, 0.0]
+		this.boxHigh = [1.0, 1.0, 1.0]
+	}
+
+	this.renderer = new dvr.Renderer(this.gl)
+}
+
+
+Viewer.prototype.render = function() {
+	this.renderer.clear([255/255, 246/255, 213/255, 1.0])
+	this.renderer.box(this.viewMatrix, this.projectionMatrix, [0.0, 0.0, 0.0], [1.0, 1.0, 1.0])
+	this.renderer.box(this.viewMatrix, this.projectionMatrix, this.boxLow, this.boxHigh)
+	this.renderer.surface(this.viewMatrix, this.projectionMatrix, this.isovalue_, [0.9, 0.4, 0.4, 1.0])
+	this.renderer.blit(0, 0, this.gl.drawingBufferWidth, this.gl.drawingBufferHeight)
+}
+
+
+Viewer.prototype.uploadData = function(typedArray, width, height, depth, boxWidth, boxHeight, boxDepth) {
+	this.currentDataSet = {
+		'typedArray': typedArray,
+		'width': width,
+		'height': height,
+		'depth': depth,
+		'boxWidth': boxWidth,
+		'boxHeight': boxHeight,
+		'boxDepth': boxDepth,
+	}
+	this.renderer.uploadData(typedArray, width, height, depth, boxWidth, boxHeight, boxDepth)
+
+	this.q = quat(1.0, 0.0, 0.0, 0.0)
+	this.viewDistance = 1.5
+	this.viewMatrix = new Float32Array([
+		1.0, 0.0, 0.0, 0.0,
+		0.0, 1.0, 0.0, 0.0,
+		0.0, 0.0, 1.0, 0.0,
+		0.0, 0.0, -this.viewDistance, 1.0,
+	])
+
+	this.render()
+}
+
+
+// quaternions
+function quat(w, x, y, z)
+{
+	return {w, x, y, z}
+}
+
+function quatMul(q0, q1)
+{
+	return quat(q0.w*q1.w - q0.x*q1.x - q0.y*q1.y - q0.z*q1.z,
+		q0.w*q1.x + q1.w*q0.x + q0.y*q1.z - q0.z*q1.y,
+		q0.w*q1.y + q1.w*q0.y - q0.x*q1.z + q0.z*q1.x,
+		q0.w*q1.z + q1.w*q0.z + q0.x*q1.y - q0.y*q1.x)
+}
+
+function
+quatToMat4(q)
+{
+	return new Float32Array([
+		1.0 - 2.0*q.y*q.y - 2.0*q.z*q.z, 2.0*q.x*q.y + 2.0*q.w*q.z, 2.0*q.x*q.z - 2.0*q.w*q.y, 0.0,
+		2.0*q.x*q.y - 2.0*q.w*q.z, 1.0 - 2.0*q.x*q.x - 2.0*q.z*q.z, 2.0*q.y*q.z + 2.0*q.w*q.x, 0.0,
+		2.0*q.x*q.z + 2.0*q.w*q.y, 2.0*q.y*q.z - 2.0*q.w*q.x, 1.0 - 2.0*q.x*q.x - 2.0*q.y*q.y, 0.0,
+		0.0, 0.0, 0.0, 1.0,
+	])
+}
+
+
+
+// Shoemake's arcball
+function
+arcball_screenToSphere(circle, screenX, screenY)
+{
+	const x = (screenX - circle.center.x)/circle.radius
+	const y = -(screenY - circle.center.y)/circle.radius
+	const r = x*x + y*y
+
+	if (r > 1.0) {
+		const s = 1.0/Math.sqrt(r)
+		return {x: s*x, y: s*y, z: 0.0}
+	} else {
+		return {x: x, y: y, z: Math.sqrt(1.0 - r)}
+	}
+}
+
+function
+arcball_quat(startPoint, endPoint)
+{
+	function
+	dot(u, v)
+	{
+		return u.x*v.x + u.y*v.y + u.z*v.z
+	}
+
+	function
+	cross(u, v)
+	{
+		return {x: u.y*v.z - u.z*v.y, y: u.z*v.x - u.x*v.z, z: u.x*v.y - u.y*v.x}
+	}
+
+	const axis = cross(startPoint, endPoint)
+	const angle = dot(startPoint, endPoint)
+	return quat(angle, axis.x, axis.y, axis.z)
+}
+
+
+
+
+let prevElem
+let viewer
+let zfpModule
+
+
+// REFERENCE: Emscripten and float arrays, Jonathan Lurie
+function
+decompress(data, width, height, depth)
+{
+	const dataBuffer = zfpModule._malloc(data.length*data.BYTES_PER_ELEMENT)
+	zfpModule.HEAPU8.set(data, dataBuffer)
+
+	const array = new Float32Array(width*height*depth)
+	const arrayPtr = zfpModule._malloc(array.length*array.BYTES_PER_ELEMENT)
+	const arrayHeap = new Uint8Array(zfpModule.HEAPU8.buffer, arrayPtr, array.length*array.BYTES_PER_ELEMENT)
+	arrayHeap.set(new Uint8Array(array.buffer))
+
+	const result = zfpModule.ccall('decode', 'number', ['number', 'number', 'number', 'number', 'number', 'number'], [dataBuffer, data.length, arrayHeap.byteOffset, width, height, depth])
+
+	// copy back from heap
+	const output_array = new Float32Array(arrayHeap.buffer, arrayHeap.byteOffset, array.length)
+
+	zfpModule._free(dataBuffer)
+	zfpModule._free(arrayHeap.byteOffset)
+
+	return output_array
+}
+
+
+function
+loadDataset(elem, name, width, height, depth, previewWidth, previewHeight, previewDepth, boxWidth, boxHeight, boxDepth)
+{
+	if (!elem.open) {
+		return
+	}
+
+	if (prevElem && elem !== prevElem) {
+		prevElem.removeAttribute('open')
+	}
+
+	const viewerElement = document.querySelector('#viewer')
+	const progressElement = viewerElement.querySelector('#progress')
+	elem.appendChild(viewerElement)
+
+	viewerElement.querySelector('#idx_url').textContent = `https://klacansky.com/open-scivis-datasets/${name}/${name}.idx`
+
+	const boxLow = [0, 0, 0]
+	const boxHigh = [1, 1, 1]
+
+	// input elements
+	const dimensions = [width, height, depth]
+	for (let axis = 0; axis < 3; axis += 1) {
+		const lowInput = viewerElement.querySelector(`input[name="low[${axis}]"]`)
+		lowInput.value = 0
+		lowInput.min = 0
+		lowInput.max = dimensions[axis] - 1
+		lowInput.addEventListener('input', e => {boxLow[axis] = e.target.value/dimensions[axis]; viewer.box(boxLow, boxHigh)})
+
+		const highInput = viewerElement.querySelector(`input[name="high[${axis}]"]`)
+		highInput.value = dimensions[axis]
+		highInput.min = 1
+		highInput.max = dimensions[axis]
+		highInput.addEventListener('input', e => {boxHigh[axis] = e.target.value/dimensions[axis]; viewer.box(boxLow, boxHigh)})
+	}
+
+	viewerElement.style.display = 'block'
+	progressElement.style.display = 'inline-block'
+	viewerElement.querySelector('canvas').style.display = 'none'
+
+	const iso_select = document.querySelector('#isovalue_select')
+	iso_select.value = 0.5
+
+	// set to 0 % in case of slow connection
+	progressElement.textContent = `Downloading preview (0%)`
+
+	// setup renderer
+	if (!viewer) {
+		viewer = new Viewer(viewerElement.querySelector('canvas'))
+	}
+
+	const previewUrl = `${name}/${name}_${previewWidth}x${previewHeight}x${previewDepth}_float8.zfp`
+	fetch(previewUrl)
+		.then(response => {
+			if (!response.ok) {
+				throw new Error('Response not ok: ' + response.statusText)
+			}
+
+			const totalBytes = response.headers.get('Content-Length')
+			const array = new Uint8Array(totalBytes)
+
+			const reader = response.body.getReader()
+			let receivedBytes = 0
+
+			// stream the data into an array in chunks to allow for progress bar
+			return reader.read().then(function processChunk(result) {
+				if (result.done) {
+					progress.textContent = `Downloading preview (100%)`
+					return array.buffer
+				}
+
+				array.set(result.value, receivedBytes)
+				receivedBytes += result.value.length
+
+				const percent = Math.round(100*receivedBytes/totalBytes)
+				progressElement.textContent = `Downloading preview (${percent}%)`
+
+				return reader.read().then(processChunk)
+			})
+		}).then(data => {
+			const array = decompress(new Uint8Array(data), previewWidth, previewHeight, previewDepth)
+			viewer.uploadData(array, previewWidth, previewHeight, previewDepth, boxWidth, boxHeight, boxDepth)
+			viewer.isovalue(iso_select.value)
+			viewer.box(boxLow, boxHigh)
+			progressElement.style.display = 'none'
+			viewerElement.querySelector('canvas').style.display = 'inline-block'
+		})
+
+	prevElem = elem
+}
+
+
+function
+init()
+{
+	zfpModule = Module()
+
+	document.querySelectorAll('details').forEach(d => {
+		d.addEventListener('toggle', () => {
+			loadDataset(d, d.id, d.dataset.width, d.dataset.height, d.dataset.depth, d.dataset.previewWidth, d.dataset.previewHeight, d.dataset.previewDepth, d.dataset.boxWidth, d.dataset.boxHeight, d.dataset.boxDepth)
+		})
+	})
+
+
+	document.querySelector('#isovalue_select').addEventListener('input', e => viewer.isovalue(e.target.value))
+
+	// open preview of dataset specified by URL hash
+	const hash = location.hash.substring(1)
+	if (hash) {
+		const details = document.getElementById(hash)
+		if (details) {
+			details.open = true
+		}
+	}
+}
+
+
+document.addEventListener('DOMContentLoaded', init)
+</script>
+
+<style>
+body {
+	text-align: center;
+	background-color: white;
+	padding: 1em 1em;
+}
+
+main {
+	margin: 2em 0 2em 0;
+	text-align: left;
+}
+
+footer {
+	text-align: left;
+}
+
+nav a {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+details:nth-child(even) summary {
+	background-color: lightgray;
+}
+
+summary {
+	padding: 10px;
+}
+
+summary span {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+details th {
+	vertical-align: top;
+}
+
+code {
+  display: block;
+  text-align: left;
+  white-space: pre-wrap   
+}
+
+code input {
+	width: 5em;
+}
+
+.name {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 300px;
+}
+
+.description {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: calc(100% - 300px - 200px - 100px - 50px);
+}
+
+.size {
+	text-align: center;
+	width: 200px;
+}
+
+.download {
+	text-align: right;
+	width: 100px;
+}
+
+#viewer {
+	display: none;
+	text-align: center;
+	padding: 1em;
+}
+
+#viewer #progress, #viewer canvas {
+	display: inline-block;
+	width: 800px;
+}
+
+#viewer #progress {
+	height: 800px;
+	vertical-align: middle;
+	line-height: 800px;
+}
+
+#webgl2_error {
+	display: none;
+}
+</style>
+
+<body>
+
+<div id="viewer">
+	<div id="progress"></div>
+	<canvas width="800" height="800"></canvas>
+	<p id="webgl2_error">
+		WebGL 2 is not supported; try recent Firefox or Chrome.
+	<div><label>Isovalue:<input id="isovalue_select" type="range" min="0" max="1" step="0.01"></label></div>
+	<code>
+	import OpenVisus as ov
+	dataset = ov.load_dataset('<span id="idx_url"></span>', cache_dir='.')
+	data = dataset.read(x=(<input type="number" name="low[0]">,<input type="number" name="high[0]">), y=(<input type="number" name="low[1]">,<input type="number" name="high[1]">), z=(<input type="number" name="low[2]">,<input type="number" name="high[2]">))
+	</code>
+</div>
+
+<nav>
+	<a href="index.html">Sorted alphabetically</a>
+	<a href="sorted-by-size.html">Sorted by size</a>
+	<a href="sorted-by-voxels.html">Sorted by number of voxels</a>
+	<a href="datasets.json">List of datasets as JSON</a>
+</nav>
+
+<p><nav>
+	<a href="index.html">All categories</a>
+	<a href="category-ct.html">CT</a>
+	<a href="category-simulation.html">Simulation</a>
+	<a href="category-mri.html">MRI</a>
+	<a href="category-microscope.html">Microscope</a>
+</nav>
+
+<p><strong>This website is possible due to generous support from <a href="https://sci.utah.edu">SCI Institute</a> and <a href="https://nationalsciencedatafabric.org">NSDF</a>. The previews are compressed using the <a href="https://github.com/LLNL/zfp">ZFP library</a>.</strong>
+
+<p><strong>Please, cite individual datasets to support authors (some have BibTeX).</strong>
+
+<p>All datasets are in little-endian byte order. Dimensions are width x height x depth (e.g., array[depth][height][width] in C).
+
+<p>Data contributions can be made by <a href="mailto:pavol@klacansky.com">emailing us</a> the dataset along with its <a href="template.json">description</a>.
+
+<main id="list">

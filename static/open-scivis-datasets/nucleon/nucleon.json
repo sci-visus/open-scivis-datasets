@@ -1,0 +1,19 @@
+{
+    "name": "Nucleon",
+    "type": "uint8",
+    "size": [
+        41,
+        41,
+        41
+    ],
+    "spacing": [
+        1,
+        1,
+        1
+    ],
+    "sha512sum": "5703198390210caac5a9aaa51cfffd822bbf1835cb40bb183cfd946dd1d4c0f0b72030431c5eed1eb9a30eaaaeb48b00cb97ba3a50b01367c90e00b9ecf00210",
+    "description": "Simulation of the two-body distribution probability of a nucleon in the atomic nucleus 16O if a second nucleon is known to be positioned at r'=(2 fm,0,0).",
+    "acknowledgement": "volvis.org and SFB 382 of the German Research Council (DFG)",
+    "url": "https://klacansky.com/open-scivis-datasets/nucleon/nucleon_41x41x41_uint8.raw",
+    "category": "simulation"
+}

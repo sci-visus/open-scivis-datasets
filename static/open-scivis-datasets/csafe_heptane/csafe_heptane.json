@@ -1,0 +1,19 @@
+{
+    "name": "CSAFE Heptane Gas",
+    "type": "uint8",
+    "size": [
+        302,
+        302,
+        302
+    ],
+    "spacing": [
+        1,
+        1,
+        1
+    ],
+    "sha512sum": "5a749e5e16d1f521b3e6f9513c8bae562a18dbc4ec5e843310a0d89502571701f7fa43d1477bf13089020a6f345ed21d1ea51623d6ecb132887901651084252b",
+    "description": "A single time step from a computational simulation of a jet of heptane gas undergoing combustion.",
+    "acknowledgement": "The University of Utah Center for the Simulation of Accidental Fires and Explosions.",
+    "url": "https://klacansky.com/open-scivis-datasets/csafe_heptane/csafe_heptane_302x302x302_uint8.raw",
+    "category": "simulation"
+}
