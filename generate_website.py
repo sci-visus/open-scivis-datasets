@@ -187,6 +187,6 @@ if __name__ == '__main__':
     # generate category pages
     for category, identifiers in categories:
         filtered_datasets = {identifier: datasets[identifier] for identifier in identifiers}
-        generate_page(filtered_datasets, categories, f'category-{category}.html', lambda x: x[1]['name'])
+        generate_page(filtered_datasets, categories, f'category-{category.lower()}.html', lambda x: x[1]['name'])
 
     print_server_redirection_array(datasets, lambda x: x[1]['name'])
