@@ -15,5 +15,5 @@
     "description": "CT scan of a bonsai tree.",
     "acknowledgement": "volvis.org and S. Roettger, VIS, University of Stuttgart",
     "url": "https://klacansky.com/open-scivis-datasets/bonsai/bonsai_256x256x256_uint8.raw",
-    "category": "ct"
+    "category": "CT"
 }

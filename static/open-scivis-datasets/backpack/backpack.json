@@ -15,5 +15,5 @@
     "description": "CT scan of a backpack filled with items.",
     "acknowledgement": "volvis.org and Kevin Kreeger, Viatronix Inc., USA",
     "url": "https://klacansky.com/open-scivis-datasets/backpack/backpack_512x512x373_uint16.raw",
-    "category": "ct"
+    "category": "CT"
 }

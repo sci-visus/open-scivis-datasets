@@ -15,5 +15,5 @@
     "description": "1.5T MRT 3D CISS dataset of a human head that highlights the CSF (Cerebro-Spinal-Fluid) filled cavities of the head.",
     "acknowledgement": "volvis.org and Dirk Bartz, VCM, University of T\u00c3\u00bcbingen, Germany",
     "url": "https://klacansky.com/open-scivis-datasets/mri_ventricles/mri_ventricles_256x256x124_uint8.raw",
-    "category": "mri"
+    "category": "MRI"
 }

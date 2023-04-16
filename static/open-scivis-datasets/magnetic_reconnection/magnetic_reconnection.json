@@ -15,6 +15,19 @@
     "description": "A single time step from a computational simulation of magnetic reconnection.",
     "acknowledgement": "Bill Daughton (LANL) and Berk Geveci (KitWare). Please acknowledge paper http://arxiv.org/abs/1405.4040.",
     "url": "https://klacansky.com/open-scivis-datasets/magnetic_reconnection/magnetic_reconnection_512x512x512_float32.raw",
-    "bibtex": "@article{magnetic_reconnection,\n\ttitle = {Formation of Hard Power Laws in the Energetic Particle Spectra Resulting from Relativistic Magnetic Reconnection},\n\tauthor = {Guo, Fan and Li, Hui and Daughton, William and Liu, Yi-Hsin},\n\tjournal = {Phys. Rev. Lett.},\n\tvolume = {113},\n\tissue = {15},\n\tpages = {155005},\n\tnumpages = {5},\n\tyear = {2014},\n\tmonth = oct,\n\tpublisher = {American Physical Society},\n\tdoi = {10.1103/PhysRevLett.113.155005},\n}",
-    "category": "simulation"
+    "bibtex": {
+        "type": "article",
+        "title": "Formation of Hard Power Laws in the Energetic Particle Spectra Resulting from Relativistic Magnetic Reconnection",
+        "author": "Guo, Fan and Li, Hui and Daughton, William and Liu, Yi-Hsin",
+        "journal": "Phys. Rev. Lett.",
+        "volume": 113,
+        "issue": 15,
+        "pages": "155005",
+        "numpages": 5,
+        "year": 2014,
+        "month": "oct",
+        "publisher": "American Physical Society",
+        "doi": "10.1103/PhysRevLett.113.155005"
+    },
+    "category": "Simulation"
 }

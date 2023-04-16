@@ -15,5 +15,5 @@
     "description": "This specimen, the holotype, was collected from the Middle Eocene Green River Formation of Sweetwater County, Wyoming on 27 July 1967 by Frank L. Pearce. The specimen was scanned along the coronal axis for a total of 750 slices. Each 1024x1024 pixel slice is 0.047 mm thick, with an interslice spacing of 0.047 mm and a field of reconstruction of 22 mm.",
     "acknowledgement": "Matthew Colbert, 17 February 2005",
     "url": "https://klacansky.com/open-scivis-datasets/spathorhynchus/spathorhynchus_1024x1024x750_uint16.raw",
-    "category": "ct"
+    "category": "CT"
 }

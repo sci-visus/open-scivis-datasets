@@ -15,5 +15,5 @@
     "description": "A CT scan of the Stanford Bunny. The greyscale units are Hounsfield units, denoting electron-density of the subject; the scale units are in millimeters. The scan was completed 28 January 2000.",
     "acknowledgement": "Many many thanks to Geoff Rubin who helped me to scan the data, Sandy Napel who coordinated the scan and helped to process the data, and Marc Levoy who graciously provided the subject.  Geoff and Sandy are with Stanford Radiology, and Marc is with Stanford Computer Science.",
     "url": "https://klacansky.com/open-scivis-datasets/bunny/bunny_512x512x361_uint16.raw",
-    "category": "ct"
+    "category": "CT"
 }

@@ -15,6 +15,15 @@
     "description": "A wall-bounded flow in a duct.",
     "acknowledgement": "Marco Atzori, Ricardo Vinuesa, Adri\u00e1n Lozano-Dur\u00e1n, and Philipp Schlatter. This work was supported by grants from the Swedish Foundation for Strategic Research, project \u201cIn-Situ Big Data Analysis for Flow and Climate Simulations\u201d (Ref. number BD15-0082) and from the Knut and Alice Wallenberg Foundation. The simulation were performed on resources provided by the Swedish National Infrastructure for Computing (SNIC).",
     "url": "https://klacansky.com/open-scivis-datasets/duct/duct_193x194x1000_float32.raw",
-    "bibtex": "@article{duct,\n\ttitle = {Intense Reynolds-stress events in turbulent ducts},\n\tauthor = {Atzori, Marco and Vinuesa, Ricardo and Lozano-Dur{\\'{a}}n, Adri{\\'{a}}n and Schlatter, Philipp},\n\tjournal = {International Journal of Heat and Fluid Flow},\n\tvolume = {89},\n\tpages = {108802},\n\tyear = {2021},\n\tdoi = {10.1016/j.ijheatfluidflow.2021.108802},\n}",
-    "category": "simulation"
+    "bibtex": {
+        "type": "article",
+        "title": "Intense Reynolds-Stress Events in Turbulent Ducts",
+        "author": "Atzori, Marco and Vinuesa, Ricardo and Lozano-Dur{\\'{a}}n, Adri{\\'{a}}n and Schlatter, Philipp",
+        "journal": "International Journal of Heat and Fluid Flow",
+        "volume": 89,
+        "pages": "108802",
+        "year": 2021,
+        "doi": "10.1016/j.ijheatfluidflow.2021.108802"
+    },
+    "category": "Simulation"
 }

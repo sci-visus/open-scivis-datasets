@@ -15,6 +15,15 @@
     "description": "The first timestep of direct numerical simulation of an autoignition phenomena in stratified dimethyl-ether/air turbulent mixtures.",
     "acknowledgement": "Gaurav Bansal, Ajith Mascarenhas, and Jacqueline H. Chen.",
     "url": "https://klacansky.com/open-scivis-datasets/hcci_oh/hcci_oh_560x560x560_float32.raw",
-    "bibtex": "@article{hcci_oh,\n\ttitle = {Direct numerical simulations of autoignition in stratified dimethyl-ether (DME)/air turbulent mixtures},\n\tauthor = {Bansal, Gaurav and Mascarenhas, Ajith and Chen, Jacqueline H.},\n\tjournal = {Combustion and Flame},\n\tvolume = {162},\n\tpages = {688--702},\n\tyear = {2015},\n\tdoi = {10.1016/j.combustflame.2014.08.021},\n}",
-    "category": "simulation"
+    "bibtex": {
+        "type": "article",
+        "title": "Direct Numerical Simulations of Autoignition in Stratified Dimethyl-Ether (DME)/Air Turbulent Mixtures",
+        "author": "Bansal, Gaurav and Mascarenhas, Ajith and Chen, Jacqueline H.",
+        "journal": "Combustion and Flame",
+        "volume": 162,
+        "pages": "688--702",
+        "year": 2015,
+        "doi": "10.1016/j.combustflame.2014.08.021"
+    },
+    "category": "Simulation"
 }

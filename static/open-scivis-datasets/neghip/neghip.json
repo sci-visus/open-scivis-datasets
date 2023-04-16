@@ -15,6 +15,15 @@
     "description": "Simulation of the spatial probability distribution of the electrons in a high potential protein molecule.",
     "acknowledgement": "volvis.org and VolVis distribution of SUNY Stony Brook, NY, USA",
     "url": "https://klacansky.com/open-scivis-datasets/neghip/neghip_64x64x64_uint8.raw",
-    "bibtex": "@inproceedings{neghip,\n\ttitle = {{VolVis}: A Diversified System for Volume Research and Development},\n\tauthor = {Avila, R. and He, Taosong and Hong, Lichan and Kaufman, A. and Pfister, H. and Silva, C. and Sobierajski, L. and Wang, S.},\n\tbooktitle = {Proceedings Visualization '94},\n\tpages = {31--38},\n\tyear = {1994},\n\tmonth = oct,\n\tdoi = {10.1109/VISUAL.1994.346340},\n}",
-    "category": "simulation"
+    "bibtex": {
+        "type": "inproceedings",
+        "title": "{VolVis}: A Diversified System for Volume Research and Development",
+        "author": "Avila, R. and He, Taosong and Hong, Lichan and Kaufman, A. and Pfister, H. and Silva, C. and Sobierajski, L. and Wang, S.",
+        "booktitle": "Proceedings Visualization '94",
+        "pages": "31--38",
+        "year": "1994",
+        "month": "oct",
+        "doi": "10.1109/VISUAL.1994.346340}"
+    },
+    "category": "Simulation"
 }

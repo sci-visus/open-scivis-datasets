@@ -15,5 +15,5 @@
     "description": "3T MRT Time-of-Flight Angiography dataset of a human head. The dataset has been resampled into an isotropic voxel grid (hence the peculiar slice size).",
     "acknowledgement": "volvis.org and \u00c3\u2013zlem G\u00c3\u00bcrvit, Institute for Neuroradiology, Frankfurt, Germany",
     "url": "https://klacansky.com/open-scivis-datasets/mrt_angio/mrt_angio_416x512x112_uint16.raw",
-    "category": "ct"
+    "category": "CT"
 }

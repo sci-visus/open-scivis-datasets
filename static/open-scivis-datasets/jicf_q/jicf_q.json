@@ -15,6 +15,15 @@
     "description": "Q-criterion of a jet in crossflow created by a direct numerical simulation.",
     "acknowledgement": "Computational support and resources were provided by the National Center for Computational Sciences at Oak Ridge National Laboratory, which is supported by the Office of Science of the US Department of Energy under contract DE-AC05-00OR22725. The work at NREL was supported by the US Department of Energy under contract DE-AC36-08-GO28308 with the National Renewable Energy Laboratory. The work at Sandia National Laboratories was supported by the Division of Chemical Sciences, Geosciences, and Biosciences, Office of Basic Energy Sciences of the US Department of Energy and by the US Department of Energy SciDAC Program. SNL is a multiprogramme laboratory operated by Sandia Corporation, a Lockheed Martin Company, for the US DOE under contract DE-AC04-94AL85000. The work at SINTEF was produced with support from Gassnova through the BIGH2/SP2 project and from the BIGCCS Centre, performed under the Norwegian research programme Centres for Environment-Friendly Energy Research (FME). The authors acknowledge the following partners for their contributions: Aker Solutions, ConocoPhillips, Det Norske Veritas, Gassco, Hydro, Shell, Statoil, TOTAL, GDF SUEZ and the Research Council of Norway (193816/S60).",
     "url": "https://klacansky.com/open-scivis-datasets/jicf_q/jicf_q_1408x1080x1100_float32.raw",
-    "bibtex": "@article{jicf_q,\n\ttitle = {A direct numerical simulation study of turbulence and flame structure in transverse jets analysed in jet-trajectory based coordinates},\n\tauthor = {Grout, R. W. and Gruber, A. and Kolla, H. and Bremer, P.-T. and Bennett, J. C. and Gyulassy, A. and Chen, J. H.},\n\tjournal = {Journal of Fluid Mechanics},\n\tvolume = {706},\n\tpages = {351--383},\n\tyear = {2012},\n\tdoi = {10.1017/jfm.2012.257},\n}",
-    "category": "simulation"
+    "bibtex": {
+        "type": "article",
+        "title": "A Direct Numerical Simulation Study of Turbulence and Flame Structure in Transverse Jets Analysed in Jet-Trajectory Based Coordinates",
+        "author": "Grout, R. W. and Gruber, A. and Kolla, H. and Bremer, P.-T. and Bennett, J. C. and Gyulassy, A. and Chen, J. H.",
+        "journal": "Journal of Fluid Mechanics",
+        "volume": 706,
+        "pages": "351--383",
+        "year": 2012,
+        "doi": "10.1017/jfm.2012.257"
+    },
+    "category": "Simulation"
 }

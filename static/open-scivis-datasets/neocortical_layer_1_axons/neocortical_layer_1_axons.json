@@ -15,6 +15,16 @@
     "description": "Axons in layer 1 of the mouse barrel cortex imaged in vivo.",
     "acknowledgement": "V De Paola, MRC Clinical Sciences Center, Imperial College London",
     "url": "https://klacansky.com/open-scivis-datasets/neocortical_layer_1_axons/neocortical_layer_1_axons_1464x1033x76_uint8.raw",
-    "bibtex": "@article{neocortical_layer_1_axons,\n\ttitle = {Cell type-specific structural plasticity of axonal branches and boutons in the adult neocortex},\n\tauthor = {De Paola, Vincenzo and Holtmaat, Anthony and Knott, Graham and Song, Sen and Wilbrecht, Linda and Caroni, Pico and Svoboda, Karel},\n\tjournal = {Neuron},\n\tvolume = {49},\n\tnumber = {6},\n\tpages = {861--875}\n\tyear = {2006},\n\tdoi = {10.1016/j.neuron.2006.02.017},\n}",
-    "category": "microscope"
+    "bibtex": {
+        "type": "article",
+        "title": "Cell Type-Specific Structural Plasticity of Axonal Branches and Boutons in the Adult Neocortex",
+        "author": "De Paola, Vincenzo and Holtmaat, Anthony and Knott, Graham and Song, Sen and Wilbrecht, Linda and Caroni, Pico and Svoboda, Karel",
+        "journal": "Neuron",
+        "volume": 49,
+        "number": 6,
+        "pages": "861--875",
+        "year": 2006,
+        "doi": "10.1016/j.neuron.2006.02.017"
+    },
+    "category": "Microscope"
 }

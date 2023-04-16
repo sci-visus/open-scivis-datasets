@@ -15,5 +15,5 @@
     "description": "Simulation of fuel injection into a combustion chamber. The higher the density value, the less presence of air.",
     "acknowledgement": "volvis.org and SFB 382 of the German Research Council (DFG)",
     "url": "https://klacansky.com/open-scivis-datasets/fuel/fuel_64x64x64_uint8.raw",
-    "category": "simulation"
+    "category": "Simulation"
 }

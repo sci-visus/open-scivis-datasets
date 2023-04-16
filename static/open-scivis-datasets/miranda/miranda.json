@@ -15,6 +15,16 @@
     "description": "A time step of a density field in a simulation of the mixing transition in Rayleigh-Taylor instability.",
     "acknowledgement": "Andrew W. Cook, William Cabot, and Paul L. Miller",
     "url": "https://klacansky.com/open-scivis-datasets/miranda/miranda_1024x1024x1024_float32.raw",
-    "bibtex": "@article{miranda,\n\ttitle = {The mixing transition in {R}ayleigh-{T}aylor instability},\n\tauthor = {Cook, Andrew W. and Cabot, William and Miller, Paul L.},\n\tjournal = {Journal of Fluid Mechanics},\n\tvolume = {511},\n\tpages = {333--362},\n\tyear = {2004},\n\tpublisher = {Cambridge University Press},\n\tdoi = {10.1017/S0022112004009681},\n}",
-    "category": "simulation"
+    "bibtex": {
+        "type": "article",
+        "title": "The Mixing Transition in {R}ayleigh-{T}aylor Instability",
+        "author": "Cook, Andrew W. and Cabot, William and Miller, Paul L.",
+        "journal": "Journal of Fluid Mechanics",
+        "volume": 511,
+        "pages": "333--362",
+        "year": 2004,
+        "publisher": "Cambridge University Press",
+        "doi": "10.1017/S0022112004009681"
+    },
+    "category": "Simulation"
 }

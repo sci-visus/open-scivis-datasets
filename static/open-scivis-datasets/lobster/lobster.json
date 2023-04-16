@@ -15,5 +15,5 @@
     "description": "CT scan of a lobster contained in a block of resin.",
     "acknowledgement": "volvis.org and VolVis distribution of SUNY Stony Brook, NY, USA",
     "url": "https://klacansky.com/open-scivis-datasets/lobster/lobster_301x324x56_uint8.raw",
-    "category": "ct"
+    "category": "CT"
 }

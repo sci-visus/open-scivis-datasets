@@ -15,6 +15,14 @@
     "description": "The Christmas tree model was scanned with a Siemens Somatom Plus 4 Volume Zoom Multislice-CT scanner at the general hospital in Vienna.",
     "acknowledgement": "Armin Kanitsar, 2002",
     "url": "https://klacansky.com/open-scivis-datasets/christmas_tree/christmas_tree_512x499x512_uint16.raw",
-    "bibtex": "@inproceedings{christmas_tree,\n\ttitle = {Christmas tree case study: Computed tomography as a tool for mastering complex real world objects with applications in computer graphics},\n\tauthor = {Kanitsar, Armin and Theu{\\ss}l, Thomas and Mroz, Lukas and \\v{S}r\\'{a}mek, Milo\\v{s} and Bartrol\\'{i}, Anna Vilanova and Cs\\'{e}bfalvi, Bal\\'{a}zs and Hlad{\\r u}vka, Ji\\v{r}\\'{i} and Fleischmann, Dominik and Knapp, Michael and Wegenkittl, Rainer and Felkel, Petr and R\\\"{o}ttger, Stefan and Guthe, Stefan and Purgathofer, Werner and Gr\\\"{o}ller, Meister Eduard},\n\tbooktitle = {IEEE Visualization, 2002. VIS 2002.},\n\tpages = {489--492},\n\tyear = {2002},\n\tdoi = {10.1109/VISUAL.2002.1183812},\n}",
-    "category": "ct"
+    "bibtex": {
+        "type": "inproceedings",
+        "title": "Christmas Tree Case Study: Computed Tomography as a Tool for Mastering Complex Real World Objects with Applications in Computer Graphics",
+        "author": "Kanitsar, Armin and Theu{\\ss}l, Thomas and Mroz, Lukas and \\v{S}r\\'{a}mek, Milo\\v{s} and Bartrol\\'{i}, Anna Vilanova and Cs\\'{e}bfalvi, Bal\\'{a}zs and Hlad{\\r u}vka, Ji\\v{r}\\'{i} and Fleischmann, Dominik and Knapp, Michael and Wegenkittl, Rainer and Felkel, Petr and R\\\"{o}ttger, Stefan and Guthe, Stefan and Purgathofer, Werner and Gr\\\"{o}ller, Meister Eduard",
+        "booktitle": "IEEE Visualization, 2002. VIS 2002.",
+        "pages": "489--492",
+        "year": 2002,
+        "doi": "10.1109/VISUAL.2002.1183812"
+    },
+    "category": "CT"
 }

@@ -15,5 +15,5 @@
     "description": "A microCT scan of dried wood branch (hazelnut).",
     "acknowledgement": "The Computer-Assisted Paleoanthropology group and the Visualization and MultiMedia Lab at University of Zurich (UZH)",
     "url": "https://klacansky.com/open-scivis-datasets/woodbranch/woodbranch_2048x2048x2048_uint16.raw",
-    "category": "ct"
+    "category": "CT"
 }

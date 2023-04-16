@@ -15,5 +15,5 @@
     "description": "Car part reconstructed from projections.",
     "acknowledgement": "Steffen Frey and Daimler AG",
     "url": "https://klacansky.com/open-scivis-datasets/zeiss/zeiss_680x680x680_uint8.raw",
-    "category": "ct"
+    "category": "CT"
 }

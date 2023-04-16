@@ -15,5 +15,5 @@
     "description": "CT scan of a leg of a bronze statue.",
     "acknowledgement": "volvis.org and German Federal Institute for Material Research and Testing (BAM), Berlin, Germany",
     "url": "https://klacansky.com/open-scivis-datasets/statue_leg/statue_leg_341x341x93_uint8.raw",
-    "category": "ct"
+    "category": "CT"
 }

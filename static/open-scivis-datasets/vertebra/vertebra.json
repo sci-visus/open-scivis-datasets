@@ -15,5 +15,5 @@
     "description": "Rotational angiography scan of a head with an aneurysm. Only contrasted blood vessels are visible.",
     "acknowledgement": "volvis.org and Michael Mei\u00c3\u0178ner, Viatronix Inc., USA",
     "url": "https://klacansky.com/open-scivis-datasets/vertebra/vertebra_512x512x512_uint16.raw",
-    "category": "ct"
+    "category": "CT"
 }

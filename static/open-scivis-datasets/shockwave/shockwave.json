@@ -15,5 +15,5 @@
     "description": "Simulation of an unsteady interaction of a planar shockwave with a randomly-perturbed contact discontinuity.",
     "acknowledgement": "volvis.org",
     "url": "https://klacansky.com/open-scivis-datasets/shockwave/shockwave_64x64x512_uint8.raw",
-    "category": "simulation"
+    "category": "Simulation"
 }

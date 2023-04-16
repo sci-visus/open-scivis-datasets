@@ -15,5 +15,5 @@
     "description": "This specimen, the holotype, was collected from the Paw Paw Formation, SMU Loc. No. 263, Tarrant County, Texas. The specimen was scanned along the coronal axis for a total of 1088 slices. Voxel size is 0.2275 mm.",
     "acknowledgement": "Matthew Colbert, 4 February 2014",
     "url": "https://klacansky.com/open-scivis-datasets/pawpawsaurus/pawpawsaurus_958x646x1088_uint16.raw",
-    "category": "ct"
+    "category": "CT"
 }

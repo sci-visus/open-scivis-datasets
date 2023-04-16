@@ -15,5 +15,5 @@
     "description": "CT Scan of the abdomen and pelvis. The dataset contains also a stent in the abdominal aorta. No contrast agent was used to enhance the blood vessels.",
     "acknowledgement": "volvis.org and Michael Mei\u00c3\u0178ner, Viatronix Inc., USA",
     "url": "https://klacansky.com/open-scivis-datasets/stent/stent_512x512x174_uint16.raw",
-    "category": "ct"
+    "category": "CT"
 }

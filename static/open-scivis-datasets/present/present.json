@@ -15,5 +15,5 @@
     "description": "An industrial CT scan of a christmas present.",
     "acknowledgement": "Christoph Heinzl, 2006",
     "url": "https://klacansky.com/open-scivis-datasets/present/present_492x492x442_uint16.raw",
-    "category": "ct"
+    "category": "CT"
 }

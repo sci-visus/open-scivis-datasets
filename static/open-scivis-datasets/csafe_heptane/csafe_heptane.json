@@ -15,5 +15,5 @@
     "description": "A single time step from a computational simulation of a jet of heptane gas undergoing combustion.",
     "acknowledgement": "The University of Utah Center for the Simulation of Accidental Fires and Explosions.",
     "url": "https://klacansky.com/open-scivis-datasets/csafe_heptane/csafe_heptane_302x302x302_uint8.raw",
-    "category": "simulation"
+    "category": "Simulation"
 }

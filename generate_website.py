@@ -13,7 +13,22 @@ TYPE_BYTES = {
 }
 
 
-def generate_dataset(name, dataset):
+def generate_bibtex(name, dataset):
+    if 'bibtex' not in dataset:
+        return ''
+
+    bibtex = dataset['bibtex']
+    output = f'@{bibtex["type"]}{{{name},\n'
+    for key, val in bibtex.items():
+        if key == 'type':
+            continue
+        output += f'    {key} = {{{val}}},\n'
+    output += '}'
+
+    return output
+
+
+def generate_dataset(identifier, dataset):
     width, height, depth = dataset['size']
     box_width, box_height, box_depth = width*dataset['spacing'][0], height*dataset['spacing'][1], depth*dataset['spacing'][2]
 
@@ -26,10 +41,10 @@ def generate_dataset(name, dataset):
         size = f'{size/1024:.1f} kB'
 
     # extract preview dimensions from the preview file name
-    zfp_name = list(pathlib.Path(f'{DIRECTORY}/{name}').glob('*.zfp'))[0].name
-    preview_width, preview_height, preview_depth = zfp_name.removeprefix(f'{name}_').removesuffix('_float8.zfp').split('x')
+    zfp_name = list(pathlib.Path(f'{DIRECTORY}/{identifier}').glob('*.zfp'))[0].name
+    preview_width, preview_height, preview_depth = zfp_name.removeprefix(f'{identifier}_').removesuffix('_float8.zfp').split('x')
 
-    return f'''<details id="{name}" data-width="{width}" data-height="{height}" data-depth="{depth}" data-preview-width="{preview_width}" data-preview-height="{preview_height}" data-preview-depth="{preview_depth}" data-box-width="{box_width}" data-box-height="{box_height}" data-box-depth="{box_depth}">
+    return f'''<details id="{identifier}" data-width="{width}" data-height="{height}" data-depth="{depth}" data-preview-width="{preview_width}" data-preview-height="{preview_height}" data-preview-depth="{preview_depth}" data-box-width="{box_width}" data-box-height="{box_height}" data-box-depth="{box_depth}">
 <summary>
     <span class="name">{dataset['name']}</span>
     <span class="description">{dataset['description']}</span>
@@ -38,8 +53,8 @@ def generate_dataset(name, dataset):
 </summary>
 <table>
     <tr><th>Description</th><td>{dataset['description']}</td></tr>
-    <tr><th>BibTeX</th><td><pre>{dataset['bibtex'] if 'bibtex' in dataset else ''}</pre></td></tr>
-    <tr><th>Metadata</th><td><a href="{name}/{name}.nhdr">NRRD (detached header)</a></td></tr>
+    <tr><th>BibTeX</th><td><pre>{generate_bibtex(identifier, dataset)}</pre></td></tr>
+    <tr><th>Metadata</th><td><a href="{identifier}/{identifier}.nhdr">NRRD (detached header)</a></td></tr>
     <tr><th>Acknowledgement</th><td>{dataset['acknowledgement']}</td></tr>
     <tr><th>Data type</th><td>{dataset['type']}</td></tr>
     <tr><th>Spacing</th><td>{dataset['spacing'][0]}x{dataset['spacing'][1]}x{dataset['spacing'][2]}</td></tr>
@@ -53,7 +68,7 @@ def read_dataset(identifier):
     return json.load(open(f'{DIRECTORY}/{identifier}/{identifier}.json', encoding='utf-8'))
 
 
-def generate_page(datasets, output_file, sort_function):
+def generate_page(datasets, categories, output_file, sort_function):
     identifiers_datasets = list(datasets.items())
     sorted_datasets = sorted(identifiers_datasets, key=sort_function)
 
@@ -62,6 +77,12 @@ def generate_page(datasets, output_file, sort_function):
         body_html += generate_dataset(identifier, dataset)
 
     header_html = open('data/header.html', encoding='utf-8').read()
+    header_html += '<p><nav>\n'
+    for category, identifiers in categories:
+        header_html += f'    <a href="category-{category.lower()}.html">{category} ({len(identifiers)})</a>\n'
+    header_html += '</nav>\n'
+    header_html += '<main id="list">\n'
+
     footer_html = open('data/footer.html', encoding='utf-8').read()
 
     with open(f'{DIRECTORY}/{output_file}', 'w', encoding='utf-8') as f:
@@ -143,18 +164,29 @@ if __name__ == '__main__':
 
     generate_nhrd_files(datasets)
 
+    # discover all categories and count the number of datasets in each
+    categories = {}
+    for identifier, dataset in datasets.items():
+        category = dataset['category']
+        if category not in categories:
+            categories[category] = []
+        categories[category].append(identifier)
+    categories = [('All', datasets)] + sorted(categories.items())
+
     # sorted alphabetically
-    generate_page(datasets, 'index.html', lambda x: x[1]['name'])
+    generate_page(datasets, categories, 'index.html', lambda x: x[1]['name'])
 
     # sorted by number of voxels
-    generate_page(datasets, 'sorted-by-voxels.html', lambda x: x[1]['size'][0]*x[1]['size'][1]*x[1]['size'][2])
+    generate_page(datasets, categories, 'sorted-by-voxels.html', lambda x: x[1]['size'][0]*x[1]['size'][1]*x[1]['size'][2])
 
     # sorted by size
-    generate_page(datasets, 'sorted-by-size.html', lambda x: x[1]['size'][0]*x[1]['size'][1]*x[1]['size'][2]*TYPE_BYTES[x[1]['type']])
+    generate_page(datasets, categories, 'sorted-by-size.html', lambda x: x[1]['size'][0]*x[1]['size'][1]*x[1]['size'][2]*TYPE_BYTES[x[1]['type']])
 
-    categories = ['ct', 'simulation', 'mri', 'microscope']
-    for category in categories:
-        filtered_datasets = {identifier: dataset for identifier, dataset in datasets.items() if dataset['category'] == category}
-        generate_page(filtered_datasets, f'category-{category}.html', lambda x: x[1]['name'])
+
+
+    # generate category pages
+    for category, identifiers in categories:
+        filtered_datasets = {identifier: datasets[identifier] for identifier in identifiers}
+        generate_page(filtered_datasets, categories, f'category-{category}.html', lambda x: x[1]['name'])
 
     print_server_redirection_array(datasets, lambda x: x[1]['name'])

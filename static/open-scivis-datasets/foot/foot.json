@@ -15,5 +15,5 @@
     "description": "Rotational C-arm x-ray scan of a human foot. Tissue and bone are present in the dataset.",
     "acknowledgement": "volvis.org and Philips Research, Hamburg, Germany",
     "url": "https://klacansky.com/open-scivis-datasets/foot/foot_256x256x256_uint8.raw",
-    "category": "ct"
+    "category": "CT"
 }

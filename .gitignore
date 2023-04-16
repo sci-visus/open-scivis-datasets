@@ -1,0 +1,8 @@
+__pycache__
+*.nhdr
+*.raw
+notebooks/.ipynb_checkpoints
+static/open-scivis-datasets/*.html
+static/open-scivis-datasets/*.json
+static/open-scivis-datasets/*.js
+static/open-scivis-datasets/*.wasm

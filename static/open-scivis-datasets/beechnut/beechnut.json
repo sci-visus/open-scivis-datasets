@@ -15,5 +15,5 @@
     "description": "A microCT scan of a dried beechnut.",
     "acknowledgement": "The Computer-Assisted Paleoanthropology group and the Visualization and MultiMedia Lab at University of Zurich (UZH)",
     "url": "https://klacansky.com/open-scivis-datasets/beechnut/beechnut_1024x1024x1546_uint16.raw",
-    "category": "ct"
+    "category": "CT"
 }

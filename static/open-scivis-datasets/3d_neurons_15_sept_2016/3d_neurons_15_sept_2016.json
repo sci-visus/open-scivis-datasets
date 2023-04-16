@@ -15,5 +15,5 @@
     "description": "The neurons are macaque visual cortical neurons labeled with TdTomato fluorescent proteins.",
     "acknowledgement": "Alessandra Angelucci and Frederick Federer. This work was supported by grants from the National Institute of Health (NEI R01 EY019743 and R01 EY026812), the National Science Foundation (EAGER 1649923).",
     "url": "https://klacansky.com/open-scivis-datasets/3d_neurons_15_sept_2016/3d_neurons_15_sept_2016_2048x2048x1718_uint16.raw",
-    "category": "microscope"
+    "category": "Microscope"
 }

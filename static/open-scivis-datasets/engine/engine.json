@@ -15,5 +15,5 @@
     "description": "CT scan of two cylinders of an engine block.",
     "acknowledgement": "volvis.org and General Electric",
     "url": "https://klacansky.com/open-scivis-datasets/engine/engine_256x256x128_uint8.raw",
-    "category": "ct"
+    "category": "CT"
 }

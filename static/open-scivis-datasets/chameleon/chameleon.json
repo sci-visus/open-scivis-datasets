@@ -15,5 +15,5 @@
     "description": "CT scan of a chameleon.",
     "acknowledgement": "Chamaeleo calyptratus. Digital Morphology, 2003.",
     "url": "https://klacansky.com/open-scivis-datasets/chameleon/chameleon_1024x1024x1080_uint16.raw",
-    "category": "ct"
+    "category": "CT"
 }

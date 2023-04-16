@@ -15,5 +15,5 @@
     "description": "Simulation of the spatial probability distribution of the electron in an hydrogen atom, residing in a strong magnetic field.",
     "acknowledgement": "volvis.org and SFB 382 of the German Research Council (DFG)",
     "url": "https://klacansky.com/open-scivis-datasets/hydrogen_atom/hydrogen_atom_128x128x128_uint8.raw",
-    "category": "simulation"
+    "category": "Simulation"
 }
