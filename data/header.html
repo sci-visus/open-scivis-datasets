@@ -223,6 +223,7 @@ arcball_quat(startPoint, endPoint)
 let prevElem
 let viewer
 let zfpModule
+let extent
 
 
 // REFERENCE: Emscripten and float arrays, Jonathan Lurie
@@ -300,7 +301,8 @@ loadDataset(elem, name, width, height, depth, previewWidth, previewHeight, previ
 		viewer = new Viewer(viewerElement.querySelector('canvas'))
 	}
 
-	const previewUrl = `${name}/${name}_${previewWidth}x${previewHeight}x${previewDepth}_float8.zfp`
+	const previewPrecision = 8
+	const previewUrl = `${name}/${name}_${previewWidth}x${previewHeight}x${previewDepth}_float${previewPrecision}.zfp`
 	fetch(previewUrl)
 		.then(response => {
 			if (!response.ok) {
@@ -334,6 +336,21 @@ loadDataset(elem, name, width, height, depth, previewWidth, previewHeight, previ
 			viewer.isovalue(iso_select.value)
 			viewer.box(boxLow, boxHigh)
 			progressElement.style.display = 'none'
+
+			document.querySelector('#preview_resolution').innerText = `${previewWidth}x${previewHeight}x${previewDepth}`
+			document.querySelector('#preview_precision').innerText = `${previewPrecision} (zfp fixed-precision mode)`
+
+			// TODO(4/24/2023): min and max are computed also in uploadData function
+			extent = [array[0], array[0]]
+			for (let i = 0; i < array.length; i += 1) {
+				extent[0] = Math.min(array[i], extent[0])
+				extent[1] = Math.max(array[i], extent[1])
+			}
+			document.querySelector('#isovalue_min').innerText = extent[0].toFixed(4)
+			document.querySelector('#isovalue_max').innerText = extent[1].toFixed(4)
+			const isovalue = iso_select.value*(extent[1] - extent[0]) + extent[0]
+			document.querySelector('#isovalue').innerText = isovalue.toFixed(4)
+
 			viewerElement.querySelector('canvas').style.display = 'inline-block'
 		})
 
@@ -353,7 +370,11 @@ init()
 	})
 
 
-	document.querySelector('#isovalue_select').addEventListener('input', e => viewer.isovalue(e.target.value))
+	document.querySelector('#isovalue_select').addEventListener('input', e => {
+		const isovalue = e.target.value*(extent[1] - extent[0]) + extent[0]
+		document.querySelector('#isovalue').innerText = isovalue.toFixed(4)
+		viewer.isovalue(e.target.value)
+	})
 
 	// open preview of dataset specified by URL hash
 	const hash = location.hash.substring(1)
@@ -470,7 +491,14 @@ code input {
 	<canvas width="800" height="800"></canvas>
 	<p id="webgl2_error">
 		WebGL 2 is not supported; try recent Firefox or Chrome.
-	<div><label>Isovalue:<input id="isovalue_select" type="range" min="0" max="1" step="0.01"></label></div>
+	<div>
+		Preview: resolution <span id="preview_resolution"></span>, precision <span id="preview_precision"></span><br><br>
+		<label>
+			Isovalue controls:<br>
+			<span id="isovalue_min"></span><input id="isovalue_select" name="isovalue_select" type="range" min="0" max="1" step="0.01"><span id="isovalue_max"></span><br>
+			<output id="isovalue" for="isovalue_select"></output>
+		</label>
+	</div>
 	<code>
 	import OpenVisus as ov
 	dataset = ov.load_dataset('<span id="idx_url"></span>', cache_dir='.')
