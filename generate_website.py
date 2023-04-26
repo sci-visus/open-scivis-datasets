@@ -130,13 +130,13 @@ def set_urls(url, dataset_identifiers):
     for identifier in dataset_identifiers:
         dataset = read_dataset(identifier)
         dataset['url'] = f'{url}/{identifier}/{identifier}_{dataset["size"][0]}x{dataset["size"][1]}x{dataset["size"][2]}_{dataset["type"]}.raw'
-        json.dump(dataset, open(f'{DIRECTORY}/{identifier}/{identifier}.json', 'w', encoding='utf-8'), indent=4)
+        json.dump(dataset, open(f'{DIRECTORY}/{identifier}/{identifier}.json', 'w', encoding='utf-8'), indent=4, ensure_ascii=False)
 
 
 
 
 if __name__ == '__main__':
-    config = json.load(open('config.json'))
+    config = json.load(open('config.json', encoding='utf-8'))
     url = config['url']
 
     # copy data files
@@ -160,7 +160,7 @@ if __name__ == '__main__':
         datasets[identifier] = read_dataset(identifier)
 
     # generate datasets.json
-    json.dump(datasets, open(f'{DIRECTORY}/datasets.json', 'w', encoding='utf-8'), indent=4)
+    json.dump(datasets, open(f'{DIRECTORY}/datasets.json', 'w', encoding='utf-8'), indent=4, ensure_ascii=False)
 
     generate_nhrd_files(datasets)
 

@@ -13,7 +13,7 @@
     ],
     "sha512sum": "18bc15ddbd477643460b4ff3e9303a7cbd5a87789605305d29e14f76019a13619821d2d823b0f59321b5c36dbaef019cf4127182bfaba87e87e42b33939a677c",
     "description": "A wall-bounded flow in a duct.",
-    "acknowledgement": "Marco Atzori, Ricardo Vinuesa, Adri\u00e1n Lozano-Dur\u00e1n, and Philipp Schlatter. This work was supported by grants from the Swedish Foundation for Strategic Research, project \u201cIn-Situ Big Data Analysis for Flow and Climate Simulations\u201d (Ref. number BD15-0082) and from the Knut and Alice Wallenberg Foundation. The simulation were performed on resources provided by the Swedish National Infrastructure for Computing (SNIC).",
+    "acknowledgement": "Marco Atzori, Ricardo Vinuesa, Adrián Lozano-Durán, and Philipp Schlatter. This work was supported by grants from the Swedish Foundation for Strategic Research, project “In-Situ Big Data Analysis for Flow and Climate Simulations” (Ref. number BD15-0082) and from the Knut and Alice Wallenberg Foundation. The simulation were performed on resources provided by the Swedish National Infrastructure for Computing (SNIC).",
     "url": "https://klacansky.com/open-scivis-datasets/duct/duct_193x194x1000_float32.raw",
     "bibtex": {
         "type": "article",
