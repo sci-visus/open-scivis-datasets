@@ -21,6 +21,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install numpy
           pip install OpenVisusNoGui
+          pip install requests
       - name: Test
         run: |
           python test.py
