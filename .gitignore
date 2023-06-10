@@ -1,6 +1,8 @@
 __pycache__
 *.nhdr
 *.raw
+*.txt
+*.docx
 notebooks/.ipynb_checkpoints
 static/open-scivis-datasets/*.html
 static/open-scivis-datasets/*.json
