@@ -13,7 +13,7 @@ TYPE_BYTES = {
 }
 
 
-def generate_bibtex(name, dataset):
+def generate_bibtex(name: str, dataset: dict) -> str:
     if 'bibtex' not in dataset:
         return ''
 
@@ -28,7 +28,7 @@ def generate_bibtex(name, dataset):
     return output
 
 
-def generate_dataset(identifier, dataset):
+def generate_dataset(identifier: str, dataset: dict):
     width, height, depth = dataset['size']
     box_width, box_height, box_depth = width*dataset['spacing'][0], height*dataset['spacing'][1], depth*dataset['spacing'][2]
 
@@ -64,11 +64,11 @@ def generate_dataset(identifier, dataset):
 '''
 
 
-def read_dataset(identifier):
+def read_dataset(identifier: str) -> dict:
     return json.load(open(f'{DIRECTORY}/{identifier}/{identifier}.json', encoding='utf-8'))
 
 
-def generate_page(datasets, categories, output_file, sort_function):
+def generate_page(datasets: dict, categories: list, output_file: str, sort_function):
     identifiers_datasets = list(datasets.items())
     sorted_datasets = sorted(identifiers_datasets, key=sort_function)
 
@@ -89,7 +89,7 @@ def generate_page(datasets, categories, output_file, sort_function):
         f.write(header_html + body_html + footer_html)
 
 
-def generate_nhrd_files(datasets):
+def generate_nhrd_files(datasets: dict):
     for identifier, dataset in datasets.items():
         # NRRD metadata file (.nhdr)
         with open(f'{DIRECTORY}/{identifier}/{identifier}.nhdr', 'w', encoding='utf-8') as f:
@@ -115,18 +115,18 @@ data file: {pathlib.Path(dataset['url']).name}
 
 
 
-def print_server_redirection_array(datasets, sort_function):
+def print_server_redirection_array(datasets: dict, sort_function):
     print('If you use CDN server, add to https_server.go and update the server')
     for identifier, dataset in datasets.items():
         rawUrl = f'{identifier}/{identifier}_{dataset["size"][0]}x{dataset["size"][1]}x{dataset["size"][2]}_{dataset["type"]}.raw'
         idxUrl = f'{identifier}/{identifier}.idx'
         idxDirUrl = f'{identifier}/{identifier}/'
         print(f'\t\t"{rawUrl}",')
-        print(f'\t\t"{idxUrl}",')
-        print(f'\t\t"{idxDirUrl}",')
+        #print(f'\t\t"{idxUrl}",')
+        #print(f'\t\t"{idxDirUrl}",')
 
 
-def set_urls(url, dataset_identifiers):
+def set_urls(url: str, dataset_identifiers: list[str]):
     for identifier in dataset_identifiers:
         dataset = read_dataset(identifier)
         dataset['url'] = f'{url}/{identifier}/{identifier}_{dataset["size"][0]}x{dataset["size"][1]}x{dataset["size"][2]}_{dataset["type"]}.raw'
@@ -171,22 +171,22 @@ if __name__ == '__main__':
         if category not in categories:
             categories[category] = []
         categories[category].append(identifier)
-    categories = [('All', datasets)] + sorted(categories.items())
+    all_categories = [('All', dataset_identifiers)] + sorted(categories.items())
 
     # sorted alphabetically
-    generate_page(datasets, categories, 'index.html', lambda x: x[1]['name'])
+    generate_page(datasets, all_categories, 'index.html', lambda x: x[1]['name'])
 
     # sorted by number of voxels
-    generate_page(datasets, categories, 'sorted-by-voxels.html', lambda x: x[1]['size'][0]*x[1]['size'][1]*x[1]['size'][2])
+    generate_page(datasets, all_categories, 'sorted-by-voxels.html', lambda x: x[1]['size'][0]*x[1]['size'][1]*x[1]['size'][2])
 
     # sorted by size
-    generate_page(datasets, categories, 'sorted-by-size.html', lambda x: x[1]['size'][0]*x[1]['size'][1]*x[1]['size'][2]*TYPE_BYTES[x[1]['type']])
+    generate_page(datasets, all_categories, 'sorted-by-size.html', lambda x: x[1]['size'][0]*x[1]['size'][1]*x[1]['size'][2]*TYPE_BYTES[x[1]['type']])
 
 
 
     # generate category pages
-    for category, identifiers in categories:
+    for category, identifiers in all_categories:
         filtered_datasets = {identifier: datasets[identifier] for identifier in identifiers}
-        generate_page(filtered_datasets, categories, f'category-{category.lower()}.html', lambda x: x[1]['name'])
+        generate_page(filtered_datasets, all_categories, f'category-{category.lower()}.html', lambda x: x[1]['name'])
 
     print_server_redirection_array(datasets, lambda x: x[1]['name'])

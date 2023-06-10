@@ -31,15 +31,15 @@ if __name__ == '__main__':
 
     # compute the target low-resolution shape by how many voxels to skip
     stride = 1
-    while (shape[0]//stride)*(shape[1]//stride)*(shape[2]//stride) > max_voxels:
+    while (shape[0]//stride)*(shape[1]//stride)*(shape[2]//stride) > MAX_VOXELS:
         stride *= 2
 
     preview = data[::stride, ::stride, ::stride]
     preview.astype(np.float32).tofile('tmp.raw')
 
-    zfp_file = f'{output_dir}/{name}_{preview.shape[2]}x{preview.shape[1]}x{preview.shape[0]}_float{precision}.zfp'
+    zfp_file = f'{output_dir}/{name}_{preview.shape[2]}x{preview.shape[1]}x{preview.shape[0]}_float{PRECISION}.zfp'
 
-    subprocess.run([zfp_exe, '-i', 'tmp.raw', '-f', '-3', str(preview.shape[2]), str(preview.shape[1]), str(preview.shape[0]), '-p',
-        str(precision), '-z', zfp_file], check=True)
+    subprocess.run([ZFP_EXE, '-i', 'tmp.raw', '-f', '-3', str(preview.shape[2]), str(preview.shape[1]), str(preview.shape[0]), '-p',
+        str(PRECISION), '-z', zfp_file], check=True)
 
     pathlib.Path('tmp.raw').unlink()
