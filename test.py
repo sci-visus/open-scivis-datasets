@@ -13,8 +13,8 @@ import unittest
 
 
 
-class TestLinks1(unittest.TestCase):
-    def test_raw_links(self):
+class TestRawLinks1(unittest.TestCase):
+    def test_links(self):
         links = [
             f'{url}/3d_neurons_15_sept_2016/3d_neurons_15_sept_2016_2048x2048x1718_uint16.raw',
             f'{url}/aneurism/aneurism_256x256x256_uint8.raw',
@@ -68,13 +68,10 @@ class TestLinks1(unittest.TestCase):
             f'{url}/zeiss/zeiss_680x680x680_uint8.raw',
         ]
         for link in links:
+            print(link)
             self.assertEqual(requests.head(link, allow_redirects=True).status_code, 200)
 
-
-
-
-class TestBackupLinks1(unittest.TestCase):
-    def test_raw_links(self):
+    def test_backup_links(self):
         url = 'https://open-scivis-datasets.sci.utah.edu'
         links = [
             f'{url}/3d_neurons_15_sept_2016/3d_neurons_15_sept_2016_2048x2048x1718_uint16.raw',
@@ -129,6 +126,7 @@ class TestBackupLinks1(unittest.TestCase):
             f'{url}/zeiss/zeiss_680x680x680_uint8.raw',
         ]
         for link in links:
+            print(link)
             self.assertEqual(requests.head(link, allow_redirects=True).status_code, 200)
 
 
