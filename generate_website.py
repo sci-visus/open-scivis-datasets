@@ -119,11 +119,14 @@ def print_server_redirection_array(datasets: dict, sort_function):
     print('If you use CDN server, add to https_server.go and update the server')
     for identifier, dataset in datasets.items():
         rawUrl = f'{identifier}/{identifier}_{dataset["size"][0]}x{dataset["size"][1]}x{dataset["size"][2]}_{dataset["type"]}.raw'
+        print(f'\t\t"{rawUrl}",')
+
+    print('IDX urls')
+    for identifier, dataset in datasets.items():
         idxUrl = f'{identifier}/{identifier}.idx'
         idxDirUrl = f'{identifier}/{identifier}/'
-        print(f'\t\t"{rawUrl}",')
-        #print(f'\t\t"{idxUrl}",')
-        #print(f'\t\t"{idxDirUrl}",')
+        print(f'\t\t"{idxUrl}",')
+        print(f'\t\t"{idxDirUrl}",')
 
 
 def set_urls(url: str, dataset_identifiers: list[str]):

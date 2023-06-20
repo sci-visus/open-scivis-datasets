@@ -23,6 +23,5 @@ func main() {
         defer f.Close()
 
         log.SetOutput(f)
-        log.Fatal(http.ListenAndServeTLS(":443", "fullchain.pem", "privkey.pem", wrapHandler(http.FileServer(http.Dir(".
-/static/open-scivis-datasets")))))
+        log.Fatal(http.ListenAndServeTLS(":443", "fullchain.pem", "privkey.pem", wrapHandler(http.FileServer(http.Dir("./static")))))
 }

@@ -27,6 +27,7 @@ New dataset is added by following these steps:
 
 
 ## Version 2.0
+- gzip compress responses?
 - render continuously instead of firing on events. Should make it smoother. (what about battery life?)
 - unicode in bibtex?
 - make it easy to run locally as simple repository for user's personal use (can organize datasets, get quick previews); generate json from raw file name

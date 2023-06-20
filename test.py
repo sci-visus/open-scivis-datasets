@@ -72,7 +72,7 @@ class TestRawLinks1(unittest.TestCase):
             self.assertEqual(requests.head(link, allow_redirects=True).status_code, 200)
 
     def test_backup_links(self):
-        url = 'https://open-scivis-datasets.sci.utah.edu'
+        url = 'https://open-scivis-datasets.sci.utah.edu/open-scivis-datasets'
         links = [
             f'{url}/3d_neurons_15_sept_2016/3d_neurons_15_sept_2016_2048x2048x1718_uint16.raw',
             f'{url}/aneurism/aneurism_256x256x256_uint8.raw',
@@ -135,16 +135,12 @@ class TestRawLinks1(unittest.TestCase):
 # TODO(3/29/2023): We do not publish the IDX files in the Github repository yet
 class TestOpenVisus1(unittest.TestCase):
     def test_checksum(self):
-        return
         datasets = json.loads(requests.get(f'{url}/datasets.json').text)
 
         for name, dataset in datasets.items():
             # NOTE(3/29/2023): skip large datasets
-            if dataset['size'][0]*dataset['size'][1]*dataset['size'][2] > 1024**3:
+            if dataset['size'][0]*dataset['size'][1]*dataset['size'][2] > 64**3:
                 continue
-
-            #if name != 'kingsnake':
-            #    continue
 
             print(name, flush=True)
             bytes = io.BytesIO(requests.get(dataset['url']).content)
@@ -153,7 +149,6 @@ class TestOpenVisus1(unittest.TestCase):
             data = np.frombuffer(bytes.getbuffer(), dtype=np.dtype(dataset['type'])).reshape(dataset['size'][2], dataset['size'][1], dataset['size'][0])
 
             d = ov.load_dataset(f'{url}/{name}/{name}.idx')
-            #d = ov.LoadDataset(f'{url}/{name}/{name}.idx')
             self.assertTrue((d.read() == data).all())
 
 
