@@ -10,7 +10,6 @@
 import * as dvr from './dvr.js'
 import Module from './zfp.js'
 
-
 function
 Viewer(canvas)
 {
@@ -369,23 +368,41 @@ init()
 		})
 	})
 
-
 	document.querySelector('#isovalue_select').addEventListener('input', e => {
 		const isovalue = e.target.value*(extent[1] - extent[0]) + extent[0]
 		document.querySelector('#isovalue').innerText = isovalue.toFixed(4)
 		viewer.isovalue(e.target.value)
 	})
 
-	// open preview of dataset specified by URL hash
-	const hash = location.hash.substring(1)
-	if (hash) {
-		const details = document.getElementById(hash)
-		if (details) {
-			details.open = true
+	window.addEventListener('hashchange', e => {
+		const oldURL = new URL(e.oldURL)
+		if (oldURL.hash) {
+			const oldDetails = document.querySelector(oldURL.hash)
+			if (oldDetails) {
+				oldDetails.open = false
+			}
+		}
+
+		const newURL = new URL(e.newURL)
+		if (newURL.hash) {
+			const newDetails = document.querySelector(newURL.hash)
+			if (newDetails) {
+				newDetails.open = true
+			}
+		}
+	})
+
+	// after WASM is loaded, try opening the preview
+	zfpModule.onRuntimeInitialized = () => {
+		// open preview of dataset specified by URL hash
+		if (location.hash) {
+			const details = document.querySelector(location.hash)
+			if (details) {
+				details.open = true
+			}
 		}
 	}
 }
-
 
 document.addEventListener('DOMContentLoaded', init)
 </script>

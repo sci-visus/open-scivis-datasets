@@ -1,0 +1,20 @@
+{
+    "name": "Frog",
+    "type": "uint8",
+    "size": [
+        256,
+        256,
+        44
+    ],
+    "spacing": [
+        0.5,
+        0.5,
+        1
+    ],
+    "sha512sum": "0421e05c1c3fdce41f96ac93d0ba59c0aed29bb9d53a5d395f859e737b67db19e6ab39806028bddc6e5b2acde1d97581f81745d380f141ae144cec923974b0d1",
+    "description": "MRI scan of a frog as part of the Whole Frog Project.",
+    "acknowledgement": "Lawrence Berkeley Laboratory, USA",
+    "url": "https://klacansky.com/open-scivis-datasets/frog/frog_256x256x44_uint8.raw",
+    "added": "2023-07-07",
+    "category": "MRI"
+}

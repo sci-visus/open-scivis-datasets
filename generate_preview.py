@@ -11,14 +11,7 @@ MAX_VOXELS = 256**3
 ZFP_EXE = 'data/zfpcmd.exe'
 
 
-if __name__ == '__main__':
-    if len(sys.argv) != 3:
-        print(f'Usage: {sys.argv[0]} input.raw output_dir')
-        sys.exit()
-
-    raw_file = sys.argv[1]
-    output_dir = sys.argv[2]
-
+def generate_preview(raw_file, output_dir):
     p = re.compile(r'(.+)_(\d+)x(\d+)x(\d+)_(.+).raw')
     m = p.match(pathlib.Path(raw_file).name)
 
@@ -43,3 +36,15 @@ if __name__ == '__main__':
         str(PRECISION), '-z', zfp_file], check=True)
 
     pathlib.Path('tmp.raw').unlink()
+
+
+if __name__ == '__main__':
+    if len(sys.argv) != 3:
+        print(f'Usage: {sys.argv[0]} input_128x64x32_uint8.raw output_dir')
+        sys.exit()
+
+    raw_file = sys.argv[1]
+    output_dir = sys.argv[2]
+
+    generate_preview(raw_file, output_dir)
+    

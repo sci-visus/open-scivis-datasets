@@ -1,0 +1,21 @@
+{
+    "name": "Head (Visible Male)",
+    "type": "uint8",
+    "size": [
+        128,
+        256,
+        256
+    ],
+    "spacing": [
+        1.57774,
+        0.995861,
+        1.00797
+    ],
+    "sha512sum": "55a3ecfb1e40685b993d51e713c9752609d5eb09359e86365c53bfbd535e77eaebfddf0eeacc73f42650726c82ed4b9ce4d0929a265ed84e1c59f39c6dd66e78",
+    "description": "Male head scan",
+    "acknowledgement": "National Library of Medicine, National Institutes of Health, USA",
+    "url": "https://klacansky.com/open-scivis-datasets/vis_male/vis_male_128x256x256_uint8.raw",
+    "date_added": "2023-07-09",
+    "category": "CT",
+    "bibtex": null
+}

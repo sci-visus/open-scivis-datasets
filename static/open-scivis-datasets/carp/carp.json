@@ -1,0 +1,21 @@
+{
+    "name": "Carp",
+    "type": "uint16",
+    "size": [
+        256,
+        256,
+        512
+    ],
+    "spacing": [
+        0.78125,
+        0.390625,
+        1
+    ],
+    "sha512sum": "0ec57ca05d700e25a87cc2ca976c066f52e254c0269aa5fb7decb08ba3607cbf996b5d72aac8671dfe6589a794935d3fd820aaa756e6f6d32b84def15455fea5",
+    "description": "CT scan of a carp fish",
+    "acknowledgement": "Michael Scheuring, Computer Graphics Group, University of Erlangen, Germany",
+    "url": "https://klacansky.com/open-scivis-datasets/carp/carp_256x256x512_uint16.raw",
+    "date_added": "2023-07-09",
+    "category": "CT",
+    "bibtex": null
+}

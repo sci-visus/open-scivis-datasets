@@ -14,7 +14,7 @@ TYPE_BYTES = {
 
 
 def generate_bibtex(name: str, dataset: dict) -> str:
-    if 'bibtex' not in dataset:
+    if 'bibtex' not in dataset or dataset['bibtex'] is None:
         return ''
 
     bibtex = dataset['bibtex']
