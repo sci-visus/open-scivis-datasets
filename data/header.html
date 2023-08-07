@@ -504,14 +504,15 @@ code input {
 <body>
 
 <div id="viewer">
+	<div><strong>Interactive Preview with Rotation, Zoom, and Isovalue Controls</strong></div>
 	<div id="progress"></div>
 	<canvas width="800" height="800"></canvas>
 	<p id="webgl2_error">
 		WebGL 2 is not supported; try recent Firefox or Chrome.
 	<div>
-		Preview: resolution <span id="preview_resolution"></span>, precision <span id="preview_precision"></span><br><br>
+		Resolution <span id="preview_resolution"></span>, precision <span id="preview_precision"></span><br><br>
 		<label>
-			Preview isovalue controls:<br>
+			Isovalue controls:<br>
 			<span id="isovalue_min"></span><input id="isovalue_select" name="isovalue_select" type="range" min="0" max="1" step="0.01"><span id="isovalue_max"></span><br>
 			<output id="isovalue" for="isovalue_select"></output>
 		</label>
