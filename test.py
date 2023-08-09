@@ -80,7 +80,7 @@ class TestRawLinks1(unittest.TestCase):
             self.assertEqual(requests.head(link, allow_redirects=True).status_code, 200)
 
     def test_backup_links(self):
-        url = 'https://open-scivis-datasets.sci.utah.edu/open-scivis-datasets'
+        url = 'http://open-scivis-datasets.sci.utah.edu/open-scivis-datasets'
         
         for link in get_raw_links1(url):
             print(link)
