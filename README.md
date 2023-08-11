@@ -8,7 +8,7 @@ The scripts were tested on Python 3.11 and Windows 10.
 
 [Open Scivis Datasets](https://klacansky.com/open-scivis-datasets) 
 
-[Open Scivis Datasets (SCI Backup)](https://open-scivis-datasets.sci.utah.edu/open-scivis-datasets/)
+[Open Scivis Datasets (SCI Backup)](http://open-scivis-datasets.sci.utah.edu/open-scivis-datasets/)
 
 
 ## Setup
@@ -33,7 +33,9 @@ New dataset is added by following these steps:
 
 
 ## Version 2.0
-- gzip compress responses?
+- If one preview is being downloaded and the user selects another preview, it may show the old preview (it will also jump the % progress display between the two)
+- render multiple surfaces (+ opacity)?
+- improve quality of previews (data and rendering)
 - render continuously instead of firing on events. Should make it smoother. (what about battery life?)
 - unicode in bibtex?
 - make it easy to run locally as simple repository for user's personal use (can organize datasets, get quick previews); generate json from raw file name
@@ -55,5 +57,3 @@ New dataset is added by following these steps:
 - reduced precision/resolution box queries using IDX2
 - automatically choose reasonable isovalue
 - show isovalue selected in the preview (as text) (if preview is used in paper, people can see the isovalue; also show resolution and precision)
-- include value range for each dataset (min and max)?
-- If one preview is being downloaded and the user selects another preview, it may show the old preview (it will also jump the % progress display between the two)

@@ -41,10 +41,11 @@ def generate_dataset(identifier: str, dataset: dict):
         size = f'{size/1024:.1f} kB'
 
     # extract preview dimensions from the preview file name
-    zfp_name = list(pathlib.Path(f'{DIRECTORY}/{identifier}').glob('*.zfp'))[0].name
-    preview_width, preview_height, preview_depth = zfp_name.removeprefix(f'{identifier}_').removesuffix('_float8.zfp').split('x')
+    zfp_file = list(pathlib.Path(f'{DIRECTORY}/{identifier}').glob('*.zfp'))[0]
+    preview_size = zfp_file.stat().st_size
+    preview_width, preview_height, preview_depth = zfp_file.name.removeprefix(f'{identifier}_').removesuffix('_float8.zfp').split('x')
 
-    return f'''<details id="{identifier}" data-width="{width}" data-height="{height}" data-depth="{depth}" data-preview-width="{preview_width}" data-preview-height="{preview_height}" data-preview-depth="{preview_depth}" data-box-width="{box_width}" data-box-height="{box_height}" data-box-depth="{box_depth}">
+    return f'''<details id="{identifier}" data-width="{width}" data-height="{height}" data-depth="{depth}" data-preview-file-size="{preview_size}" data-preview-width="{preview_width}" data-preview-height="{preview_height}" data-preview-depth="{preview_depth}" data-box-width="{box_width}" data-box-height="{box_height}" data-box-depth="{box_depth}">
 <summary>
     <span class="name">{dataset['name']}</span>
     <span class="description">{dataset['description']}</span>

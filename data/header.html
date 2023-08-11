@@ -250,7 +250,7 @@ decompress(data, width, height, depth)
 
 
 function
-loadDataset(elem, name, width, height, depth, previewWidth, previewHeight, previewDepth, boxWidth, boxHeight, boxDepth)
+loadDataset(elem, name, width, height, depth, previewFileSize, previewWidth, previewHeight, previewDepth, boxWidth, boxHeight, boxDepth)
 {
 	if (!elem.open) {
 		return
@@ -308,7 +308,7 @@ loadDataset(elem, name, width, height, depth, previewWidth, previewHeight, previ
 				throw new Error('Response not ok: ' + response.statusText)
 			}
 
-			const totalBytes = response.headers.get('Content-Length')
+			const totalBytes = previewFileSize
 			const array = new Uint8Array(totalBytes)
 
 			const reader = response.body.getReader()
@@ -364,7 +364,7 @@ init()
 
 	document.querySelectorAll('details').forEach(d => {
 		d.addEventListener('toggle', () => {
-			loadDataset(d, d.id, d.dataset.width, d.dataset.height, d.dataset.depth, d.dataset.previewWidth, d.dataset.previewHeight, d.dataset.previewDepth, d.dataset.boxWidth, d.dataset.boxHeight, d.dataset.boxDepth)
+			loadDataset(d, d.id, d.dataset.width, d.dataset.height, d.dataset.depth, d.dataset.previewFileSize, d.dataset.previewWidth, d.dataset.previewHeight, d.dataset.previewDepth, d.dataset.boxWidth, d.dataset.boxHeight, d.dataset.boxDepth)
 		})
 	})
 
