@@ -125,8 +125,9 @@ endian: little
 encoding: raw
 space origin: (-{dataset['spacing'][0]*dataset['size'][0]/2},-{dataset['spacing'][1]*dataset['size'][1]/2},-{dataset['spacing'][2]*dataset['size'][2]/2})
 data file: {pathlib.Path(dataset['url']).name}
+
 """
-            )  # must end with a newline (otherwise ParaView hangs)
+            )  # NRRD format requires a single empty line after the header
 
 
 def print_server_redirection_array(datasets: dict, sort_function):
