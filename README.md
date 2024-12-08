@@ -33,6 +33,9 @@ New dataset is added by following these steps:
 
 
 ## Version 2.0
+- Value range (or show example how to use Python to compute them)
+- Histogram (Python sample to compute them?)
+- Volume rendering (https://arxiv.org/abs/2406.15634)
 - If one preview is being downloaded and the user selects another preview, it may show the old preview (it will also jump the % progress display between the two)
 - render multiple surfaces (+ opacity)?
 - improve quality of previews (data and rendering)
