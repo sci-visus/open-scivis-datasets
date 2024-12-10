@@ -53,4 +53,3 @@ New dataset is added by following these steps:
 - reverse references to open scivis (list all papers that use a particular dataset. How to do it? (use Google form to allow authors report their papers)
 - JICF vector field (we now share only the Q criterion); time dependent dataset
 - automatically choose reasonable isovalue
-- show isovalue selected in the preview (as text) (if preview is used in paper, people can see the isovalue; also show resolution and precision)

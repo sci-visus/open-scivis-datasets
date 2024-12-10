@@ -322,7 +322,7 @@ loadDataset(elem, name, width, height, depth, previewFileSize, previewWidth, pre
 			document.querySelector('#isovalue_min').innerText = extent[0].toFixed(4)
 			document.querySelector('#isovalue_max').innerText = extent[1].toFixed(4)
 			const isovalue = iso_select.value*(extent[1] - extent[0]) + extent[0]
-			document.querySelector('#isovalue').innerText = isovalue.toFixed(4)
+			document.querySelector('#preview_isovalue').innerText = isovalue.toFixed(4)
 
 			viewerElement.querySelector('canvas').style.display = 'inline-block'
 		})
@@ -342,7 +342,7 @@ init()
 
 	document.querySelector('#isovalue_select').addEventListener('input', e => {
 		const isovalue = e.target.value*(extent[1] - extent[0]) + extent[0]
-		document.querySelector('#isovalue').innerText = isovalue.toFixed(4)
+		document.querySelector('#preview_isovalue').innerText = isovalue.toFixed(4)
 		viewer.isovalue(e.target.value)
 	})
 
@@ -480,11 +480,10 @@ code input {
 	<p id="webgl2_error">
 		WebGL 2 is not supported; try recent Firefox or Chrome.
 	<div>
-		Resolution <span id="preview_resolution"></span>, precision <span id="preview_precision"></span><br><br>
+		Resolution <span id="preview_resolution"></span>, precision <span id="preview_precision"></span>, isovalue <output id="preview_isovalue" for="isovalue_select"></output><br><br>
 		<label>
 			Isovalue controls:<br>
 			<span id="isovalue_min"></span><input id="isovalue_select" name="isovalue_select" type="range" min="0" max="1" step="0.01"><span id="isovalue_max"></span><br>
-			<output id="isovalue" for="isovalue_select"></output>
 		</label>
 	</div>
 	<code>
