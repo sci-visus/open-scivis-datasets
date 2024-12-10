@@ -45,13 +45,17 @@ def generate_dataset(identifier: str, dataset: dict):
         size = f"{size/1024:.1f} kB"
 
     # extract preview dimensions from the preview file name
-    zfp_file = list(pathlib.Path(f"{DIRECTORY}/{identifier}").glob("*.zfp"))[0]
-    preview_size = zfp_file.stat().st_size
-    preview_width, preview_height, preview_depth = (
-        zfp_file.name.removeprefix(f"{identifier}_")
-        .removesuffix("_float8.zfp")
-        .split("x")
-    )
+    try:
+        preview_file = list(pathlib.Path(f"{DIRECTORY}/{identifier}").glob("preview*"))[0]
+        preview_size = preview_file.stat().st_size
+        preview_width, preview_height, preview_depth = (
+            preview_file.name.removeprefix(f"preview_{identifier}_")
+            .removesuffix("_float32.raw")
+            .split("x")
+        )
+    except:
+        preview_size = 0
+        preview_width, preview_height, preview_depth = 0, 0, 0
 
     return f"""<details id="{identifier}" data-width="{width}" data-height="{height}" data-depth="{depth}" data-preview-file-size="{preview_size}" data-preview-width="{preview_width}" data-preview-height="{preview_height}" data-preview-depth="{preview_depth}" data-box-width="{box_width}" data-box-height="{box_height}" data-box-depth="{box_depth}">
 <summary>
@@ -130,20 +134,6 @@ data file: {pathlib.Path(dataset['url']).name}
             )  # NRRD format requires a single empty line after the header
 
 
-def print_server_redirection_array(datasets: dict, sort_function):
-    print("If you use CDN server, add to https_server.go and update the server")
-    for identifier, dataset in datasets.items():
-        rawUrl = f'{identifier}/{identifier}_{dataset["size"][0]}x{dataset["size"][1]}x{dataset["size"][2]}_{dataset["type"]}.raw'
-        print(f'\t\t"{rawUrl}",')
-
-    print("IDX urls")
-    for identifier, dataset in datasets.items():
-        idxUrl = f"{identifier}/{identifier}.idx"
-        idxDirUrl = f"{identifier}/{identifier}/"
-        print(f'\t\t"{idxUrl}",')
-        print(f'\t\t"{idxDirUrl}",')
-
-
 def set_urls(url: str, dataset_identifiers: list[str]):
     for identifier in dataset_identifiers:
         dataset = read_dataset(identifier)
@@ -163,7 +153,7 @@ if __name__ == "__main__":
     url = config["url"]
 
     # copy data files
-    data_files = ["dvr.js", "template.json", "zfp.js", "zfp.wasm"]
+    data_files = ["dvr.js", "template.json"]
     for file in data_files:
         src = pathlib.Path(f"data/{file}")
         dst = pathlib.Path(f"{DIRECTORY}/{file}")
@@ -234,5 +224,3 @@ if __name__ == "__main__":
             f"category-{category.lower()}.html",
             lambda x: x[1]["name"],
         )
-
-    print_server_redirection_array(datasets, lambda x: x[1]["name"])

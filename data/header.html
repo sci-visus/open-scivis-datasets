@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="A collection of open scientific visualization data sets.">
+<meta name="description" content="A collection of open scientific visualization datasets.">
 <title>Open Scientific Visualization Datasets</title>
 
 <script type="module">
 import * as dvr from './dvr.js'
-import Module from './zfp.js'
 
 function
 Viewer(canvas)
@@ -221,32 +220,7 @@ arcball_quat(startPoint, endPoint)
 
 let prevElem
 let viewer
-let zfpModule
 let extent
-
-
-// REFERENCE: Emscripten and float arrays, Jonathan Lurie
-function
-decompress(data, width, height, depth)
-{
-	const dataBuffer = zfpModule._malloc(data.length*data.BYTES_PER_ELEMENT)
-	zfpModule.HEAPU8.set(data, dataBuffer)
-
-	const array = new Float32Array(width*height*depth)
-	const arrayPtr = zfpModule._malloc(array.length*array.BYTES_PER_ELEMENT)
-	const arrayHeap = new Uint8Array(zfpModule.HEAPU8.buffer, arrayPtr, array.length*array.BYTES_PER_ELEMENT)
-	arrayHeap.set(new Uint8Array(array.buffer))
-
-	const result = zfpModule.ccall('decode', 'number', ['number', 'number', 'number', 'number', 'number', 'number'], [dataBuffer, data.length, arrayHeap.byteOffset, width, height, depth])
-
-	// copy back from heap
-	const output_array = new Float32Array(arrayHeap.buffer, arrayHeap.byteOffset, array.length)
-
-	zfpModule._free(dataBuffer)
-	zfpModule._free(arrayHeap.byteOffset)
-
-	return output_array
-}
 
 
 function
@@ -301,7 +275,7 @@ loadDataset(elem, name, width, height, depth, previewFileSize, previewWidth, pre
 	}
 
 	const previewPrecision = 8
-	const previewUrl = `${name}/${name}_${previewWidth}x${previewHeight}x${previewDepth}_float${previewPrecision}.zfp`
+	const previewUrl = `${name}/preview_${name}_${previewWidth}x${previewHeight}x${previewDepth}_float32.raw`
 	fetch(previewUrl)
 		.then(response => {
 			if (!response.ok) {
@@ -330,14 +304,14 @@ loadDataset(elem, name, width, height, depth, previewFileSize, previewWidth, pre
 				return reader.read().then(processChunk)
 			})
 		}).then(data => {
-			const array = decompress(new Uint8Array(data), previewWidth, previewHeight, previewDepth)
+			const array = new Float32Array(data);
 			viewer.uploadData(array, previewWidth, previewHeight, previewDepth, boxWidth, boxHeight, boxDepth)
 			viewer.isovalue(iso_select.value)
 			viewer.box(boxLow, boxHigh)
 			progressElement.style.display = 'none'
 
 			document.querySelector('#preview_resolution').innerText = `${previewWidth}x${previewHeight}x${previewDepth}`
-			document.querySelector('#preview_precision').innerText = `${previewPrecision} (zfp fixed-precision mode)`
+			document.querySelector('#preview_precision').innerText = "float32"
 
 			// TODO(4/24/2023): min and max are computed also in uploadData function
 			extent = [array[0], array[0]]
@@ -360,8 +334,6 @@ loadDataset(elem, name, width, height, depth, previewFileSize, previewWidth, pre
 function
 init()
 {
-	zfpModule = Module()
-
 	document.querySelectorAll('details').forEach(d => {
 		d.addEventListener('toggle', () => {
 			loadDataset(d, d.id, d.dataset.width, d.dataset.height, d.dataset.depth, d.dataset.previewFileSize, d.dataset.previewWidth, d.dataset.previewHeight, d.dataset.previewDepth, d.dataset.boxWidth, d.dataset.boxHeight, d.dataset.boxDepth)
@@ -392,14 +364,12 @@ init()
 		}
 	})
 
-	// after WASM is loaded, try opening the preview
-	zfpModule.onRuntimeInitialized = () => {
-		// open preview of dataset specified by URL hash
-		if (location.hash) {
-			const details = document.querySelector(location.hash)
-			if (details) {
-				details.open = true
-			}
+
+	// open preview of dataset specified by URL hash
+	if (location.hash) {
+		const details = document.querySelector(location.hash)
+		if (details) {
+			details.open = true
 		}
 	}
 }

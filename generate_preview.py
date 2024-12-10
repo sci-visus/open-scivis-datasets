@@ -6,12 +6,10 @@ import subprocess
 import sys
 
 
-PRECISION = 8
 MAX_VOXELS = 256**3
-ZFP_EXE = "data/zfpcmd.exe"
 
 
-def generate_preview(raw_file, output_dir):
+def generate_preview(raw_file: str, output_dir: str) -> None:
     p = re.compile(r"(.+)_(\d+)x(\d+)x(\d+)_(.+).raw")
     m = p.match(pathlib.Path(raw_file).name)
 
@@ -30,30 +28,7 @@ def generate_preview(raw_file, output_dir):
         stride *= 2
 
     preview = data[::stride, ::stride, ::stride]
-    preview.astype(np.float32).tofile("tmp.raw")
-
-    zfp_file = f"{output_dir}/{name}_{preview.shape[2]}x{preview.shape[1]}x{preview.shape[0]}_float{PRECISION}.zfp"
-
-    subprocess.run(
-        [
-            ZFP_EXE,
-            "-i",
-            "tmp.raw",
-            "-f",
-            "-3",
-            str(preview.shape[2]),
-            str(preview.shape[1]),
-            str(preview.shape[0]),
-            "-p",
-            str(PRECISION),
-            "-z",
-            zfp_file,
-        ],
-        check=True,
-    )
-
-    pathlib.Path("tmp.raw").unlink()
-
+    preview.astype(np.float32).tofile(f"{output_dir}/preview_{name}_{preview.shape[2]}x{preview.shape[1]}x{preview.shape[0]}_float32.raw")
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
