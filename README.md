@@ -44,7 +44,6 @@ New dataset is added by following these steps:
 - performance benchmark for OpenVisus queries
 - isovalue slider is hard to use for data that have nonlinear scale
 - Box selection with clipping planes, click on box sides to shrink
-- sort in descending order by size and number of voxels? (but alphabetical is ascending)
 - highlight datasets with BibTex, on each dataset title have a link or icon to bibtex
 - fields (with previews)
 - versioning of datasets.json file

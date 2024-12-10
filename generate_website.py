@@ -199,7 +199,7 @@ if __name__ == "__main__":
         datasets,
         all_categories,
         "sorted-by-voxels.html",
-        lambda x: x[1]["size"][0] * x[1]["size"][1] * x[1]["size"][2],
+        lambda x: -x[1]["size"][0] * x[1]["size"][1] * x[1]["size"][2],
     )
 
     # sorted by size
@@ -207,7 +207,7 @@ if __name__ == "__main__":
         datasets,
         all_categories,
         "sorted-by-size.html",
-        lambda x: x[1]["size"][0]
+        lambda x: -x[1]["size"][0]
         * x[1]["size"][1]
         * x[1]["size"][2]
         * TYPE_BYTES[x[1]["type"]],
