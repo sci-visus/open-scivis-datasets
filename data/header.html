@@ -222,6 +222,10 @@ let prevElem
 let viewer
 let extent
 
+// Monotonically increasing counter that uniquely identifies the currently opened preview.
+// Previews being loaded with counter that is not equal to previewCounter are cancelled.
+let previewCounter = 0;
+
 
 function
 loadDataset(elem, name, width, height, depth, previewFileSize, previewWidth, previewHeight, previewDepth, boxWidth, boxHeight, boxDepth)
@@ -274,7 +278,9 @@ loadDataset(elem, name, width, height, depth, previewFileSize, previewWidth, pre
 		viewer = new Viewer(viewerElement.querySelector('canvas'))
 	}
 
-	const previewPrecision = 8
+	previewCounter++;
+	const thisPreviewCounter = previewCounter;
+
 	const previewUrl = `${name}/preview_${name}_${previewWidth}x${previewHeight}x${previewDepth}_float32.raw`
 	fetch(previewUrl)
 		.then(response => {
@@ -290,8 +296,13 @@ loadDataset(elem, name, width, height, depth, previewFileSize, previewWidth, pre
 
 			// stream the data into an array in chunks to allow for progress bar
 			return reader.read().then(function processChunk(result) {
+				if (thisPreviewCounter !== previewCounter) {
+					reader.cancel()
+					return null;
+				}
+
 				if (result.done) {
-					progress.textContent = `Downloading preview (100%)`
+					progressElement.textContent = `Downloading preview (100%)`
 					return array.buffer
 				}
 
@@ -304,6 +315,10 @@ loadDataset(elem, name, width, height, depth, previewFileSize, previewWidth, pre
 				return reader.read().then(processChunk)
 			})
 		}).then(data => {
+			if (data === null) {
+				return;
+			}
+
 			const array = new Float32Array(data);
 			viewer.uploadData(array, previewWidth, previewHeight, previewDepth, boxWidth, boxHeight, boxDepth)
 			viewer.isovalue(iso_select.value)
