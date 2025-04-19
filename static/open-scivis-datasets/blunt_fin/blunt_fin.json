@@ -14,7 +14,7 @@
     "sha512sum": "d5da3701268d92dd84e9a18db3ad126d01408983ce4efde38ffa0c096029d9b1c80c9094c5d1dc9baeff4e076c97c195137d200c99b3eee862dcf1d22dfe9df7",
     "description": "",
     "acknowledgement": "NASA Advanced Supercomputing Division, USA",
-    "url": "https://klacansky.com/open-scivis-datasets/blunt_fin/blunt_fin_256x128x64_uint8.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/blunt_fin/blunt_fin_256x128x64_uint8.raw",
     "added": "2023-07-07",
     "category": "Simulation"
 }

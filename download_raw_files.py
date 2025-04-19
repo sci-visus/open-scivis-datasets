@@ -5,7 +5,7 @@ import requests
 
 
 DIRECTORY = "static/open-scivis-datasets"
-MIRROR_URL = "https://klacansky.com/open-scivis-datasets"
+MIRROR_URL = "http://klacansky.com/open-scivis-datasets"
 
 
 def download_raw_file(url, file, sha512sum):

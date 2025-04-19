@@ -14,6 +14,6 @@
     "sha512sum": "eec310efd5898de3bff874365966b583418fbebede360a832e7a5a96466dcbd7cbaf91df3fe51584abd046de85839c66d2e467a340fc302eba08d483e5ad70a9",
     "description": "A microCT scan of a dried beechnut.",
     "acknowledgement": "The Computer-Assisted Paleoanthropology group and the Visualization and MultiMedia Lab at University of Zurich (UZH)",
-    "url": "https://klacansky.com/open-scivis-datasets/beechnut/beechnut_1024x1024x1546_uint16.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/beechnut/beechnut_1024x1024x1546_uint16.raw",
     "category": "CT"
 }

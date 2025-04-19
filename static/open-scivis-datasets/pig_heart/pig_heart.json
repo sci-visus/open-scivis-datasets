@@ -14,6 +14,6 @@
     "sha512sum": "d66a2e2a2a832beec91ebac1ebe8c938fb9aa51f735169d68e1d721500a58a59021559cec3877df307ff2e8e33f70a2570cd29287aed1fa6b954f8e2cf382a7f",
     "description": "Volumes were obtained by way of computed tomography (CT) imaging on excised, postmortem porcine hearts. Alginate curing agents were injected into ventricles to provide rigidity and radiopaque agents were injected into the coronary arteries to distinguish microvasculature from the rest of the tissue.",
     "acknowledgement": "Experiments were performed by the Cardiovascular Research and Training Institute (CVRTI) and the Scientific Computing and Imaging (SCI) Institute at the University of Utah with funding from the Nora Eccles Treadwell foundation and the NIH/NIGMS Center of Integrative Biomedical Computing under grant P41 GM103545-17.",
-    "url": "https://klacansky.com/open-scivis-datasets/pig_heart/pig_heart_2048x2048x2612_int16.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/pig_heart/pig_heart_2048x2048x2612_int16.raw",
     "category": "CT"
 }

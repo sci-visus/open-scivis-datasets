@@ -14,7 +14,7 @@
     "sha512sum": "12923141c4195db5f91a9a288fbea85d26572373fa236a4185870617e369d23876ef23e6213f788b4456b7ae098e2ec9b572d4a8809891dd0d872124c2cfb997",
     "description": "A pressure field of a direct numerical simulation of fully developed flow at different Reynolds numbers in a plane channel have been performed with POONGBACK code which uses the spectral numerical method of Kim, Moin and Moser (J. Fluid Mech. vol 177, page 133).",
     "acknowledgement": "Myoungkyu Lee and Robert D. Moser. Direct numerical simulation of turbulent channel flow up to Re_tau = 5200, Journal of Fluid Mechanics, 2015, vol. 774, pp. 395-415",
-    "url": "https://klacansky.com/open-scivis-datasets/dns/dns_10240x7680x1536_float64.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/dns/dns_10240x7680x1536_float64.raw",
     "bibtex": {
         "type": "article",
         "title": "Direct Numerical Simulation of Turbulent Channel Flow up to ${R}e_\\tau \\approx 5200$",

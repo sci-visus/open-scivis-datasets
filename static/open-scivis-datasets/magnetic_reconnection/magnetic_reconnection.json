@@ -14,7 +14,7 @@
     "sha512sum": "16c663b89799e58292eea0f83c9f07f340f52283af2cdb8c72aa28a9e6368876f60415dc6b2dfe11b53f2efb050b703131d2995e589f857b52c6a6807ea22a13",
     "description": "A single time step from a computational simulation of magnetic reconnection.",
     "acknowledgement": "Bill Daughton (LANL) and Berk Geveci (KitWare). Please acknowledge paper http://arxiv.org/abs/1405.4040.",
-    "url": "https://klacansky.com/open-scivis-datasets/magnetic_reconnection/magnetic_reconnection_512x512x512_float32.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/magnetic_reconnection/magnetic_reconnection_512x512x512_float32.raw",
     "bibtex": {
         "type": "article",
         "title": "Formation of Hard Power Laws in the Energetic Particle Spectra Resulting from Relativistic Magnetic Reconnection",

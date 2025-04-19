@@ -14,6 +14,6 @@
     "sha512sum": "6b31b8c3c056e4fca2c908c8feffe1ad4872e1201feafe136ed22178d2593f549c4a8328b2f6ec7d7855271f28f7a4981ffae8ced9ff21df11652abe7c0766bc",
     "description": "Rotational C-arm x-ray scan of phantom of a human skull.",
     "acknowledgement": "volvis.org and Siemens Medical Solutions, Forchheim, Germany",
-    "url": "https://klacansky.com/open-scivis-datasets/skull/skull_256x256x256_uint8.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/skull/skull_256x256x256_uint8.raw",
     "category": "CT"
 }

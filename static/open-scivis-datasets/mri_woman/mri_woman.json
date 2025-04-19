@@ -14,7 +14,7 @@
     "sha512sum": "f14941ef8e9cabd751fe2c433b4cfaef7ad846c05eeea8026d541e3e32dcc5b04cb04ea4f605188059d371d0967218bef9529429be53d9e88ff72f964f73938f",
     "description": "MRI scan of a woman's head",
     "acknowledgement": "Siemens Medical Systems, Inc., Iselin, NJ., USA",
-    "url": "https://klacansky.com/open-scivis-datasets/mri_woman/mri_woman_256x256x109_uint16.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/mri_woman/mri_woman_256x256x109_uint16.raw",
     "date_added": "2023-07-09",
     "category": "MRI",
     "bibtex": null

@@ -14,7 +14,7 @@
     "sha512sum": "a3ce708c1076fd0425a42a701b1a5a5598a6077fbc603ee43afbd3c3b0309e31235d1f661c2ff7ef9a28870e9b1cb9391991435ff1bebc80c37bd11b38826ab0",
     "description": "The Christmas tree model was scanned with a Siemens Somatom Plus 4 Volume Zoom Multislice-CT scanner at the general hospital in Vienna.",
     "acknowledgement": "Armin Kanitsar, 2002",
-    "url": "https://klacansky.com/open-scivis-datasets/christmas_tree/christmas_tree_512x499x512_uint16.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/christmas_tree/christmas_tree_512x499x512_uint16.raw",
     "bibtex": {
         "type": "inproceedings",
         "title": "Christmas Tree Case Study: Computed Tomography as a Tool for Mastering Complex Real World Objects with Applications in Computer Graphics",

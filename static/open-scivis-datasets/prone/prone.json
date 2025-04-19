@@ -14,6 +14,6 @@
     "sha512sum": "c3a44cb47390ece603f1e86088b132ad7da7effe44afcf50c5c1f3a8697de36d39ea1a74619187f540e6663701518b0ab39b8e040911a41c37226fb80ccd5117",
     "description": "CT scan of abdomen in prone orientation (back faces ceiling, belly faces table).",
     "acknowledgement": "volvis.org and Walter Reed Army Medical Center, USA",
-    "url": "https://klacansky.com/open-scivis-datasets/prone/prone_512x512x463_uint16.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/prone/prone_512x512x463_uint16.raw",
     "category": "CT"
 }

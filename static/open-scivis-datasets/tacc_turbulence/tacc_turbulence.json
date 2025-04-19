@@ -14,6 +14,6 @@
     "sha512sum": "2206fc1368064e62a752cea90b3932289a26606a3b1552b945745f3c1c57ded867ec8b28daa1d05bfd20438c8c3fa95460a43c37f086aaffea1f5b5742b72580",
     "description": "The dataset represents a time step from an isotropic turbulence simulation. A single variable, enstrophy, is represented on a Cartesian grid.",
     "acknowledgement": "Dataset provided by Gregory D. Abram and Gregory P. Johnson, Texas Advanced Computing Center, The University of Texas at Austin. Simulation by Diego A. Donzis, Texas A&M University, P.K. Yeung, Georgia Tech.",
-    "url": "https://klacansky.com/open-scivis-datasets/tacc_turbulence/tacc_turbulence_256x256x256_float32.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/tacc_turbulence/tacc_turbulence_256x256x256_float32.raw",
     "category": "Simulation"
 }

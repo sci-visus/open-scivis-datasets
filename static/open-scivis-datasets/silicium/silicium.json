@@ -14,7 +14,7 @@
     "sha512sum": "8ef2b9a84eb94693596b57f3f21f5ea75c1c25654011e3aed39a27f5e4259ebbbd2486ff39bb32b551bb44f3fa25123e7128cfd3fc053134f0806e23bb24a819",
     "description": "Simulation of a silicium grid.",
     "acknowledgement": "volvis.org and VolVis distribution of SUNY Stony Brook, NY, USA",
-    "url": "https://klacansky.com/open-scivis-datasets/silicium/silicium_98x34x34_uint8.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/silicium/silicium_98x34x34_uint8.raw",
     "bibtex": {
         "type": "inproceedings",
         "title": "{VolVis}: A Diversified System for Volume Research and Development",

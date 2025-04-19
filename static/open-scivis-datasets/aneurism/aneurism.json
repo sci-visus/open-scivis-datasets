@@ -14,6 +14,6 @@
     "sha512sum": "31f1232cbf75b0182f172375e46cc57fe013c0edaae292f2358e2477052ca974faae92efd803a2d229172b851b5ddaa461129872b89bd6ce45d43bfe595eed43",
     "description": "Rotational C-arm x-ray scan of the arteries of the right half of a human head. A contrast agent was injected into the blood and an aneurism is present.",
     "acknowledgement": "volvis.org and Philips Research, Hamburg, Germany",
-    "url": "https://klacansky.com/open-scivis-datasets/aneurism/aneurism_256x256x256_uint8.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/aneurism/aneurism_256x256x256_uint8.raw",
     "category": "CT"
 }

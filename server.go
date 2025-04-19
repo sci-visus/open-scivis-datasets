@@ -33,6 +33,5 @@ func wrapHandler(h http.Handler) http.HandlerFunc {
 }
 
 func main() {
-	http.ListenAndServeTLS(":443", "fullchain.pem", "privkey.pem", wrapHandler(http.FileServer(http.Dir("./static"))))
-	//http.ListenAndServe(":8000", wrapHandler(http.FileServer(http.Dir("./static"))))
+	http.ListenAndServe(":80", wrapHandler(http.FileServer(http.Dir("./static"))))
 }

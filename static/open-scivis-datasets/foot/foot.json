@@ -14,6 +14,6 @@
     "sha512sum": "56a73bd1f694a09809688f5b0bbf0dfff0ef3e853a34c60c4d51bef02dd96fbfe5191f47c7762bdf7caab6f9a22f1d0e830652779f87c70cc519f345221edd0e",
     "description": "Rotational C-arm x-ray scan of a human foot. Tissue and bone are present in the dataset.",
     "acknowledgement": "volvis.org and Philips Research, Hamburg, Germany",
-    "url": "https://klacansky.com/open-scivis-datasets/foot/foot_256x256x256_uint8.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/foot/foot_256x256x256_uint8.raw",
     "category": "CT"
 }

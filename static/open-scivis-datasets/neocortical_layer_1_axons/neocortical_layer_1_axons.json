@@ -14,7 +14,7 @@
     "sha512sum": "9c4b596a0682c42d1ed30f4d1da84098b1f13a03fb51ed1da3e57871b59fa7ad82bbacd3c08e1b951ddfec4e19bfcbb3493b1488769a3f2effa1369560d9f80d",
     "description": "Axons in layer 1 of the mouse barrel cortex imaged in vivo.",
     "acknowledgement": "V De Paola, MRC Clinical Sciences Center, Imperial College London",
-    "url": "https://klacansky.com/open-scivis-datasets/neocortical_layer_1_axons/neocortical_layer_1_axons_1464x1033x76_uint8.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/neocortical_layer_1_axons/neocortical_layer_1_axons_1464x1033x76_uint8.raw",
     "bibtex": {
         "type": "article",
         "title": "Cell Type-Specific Structural Plasticity of Axonal Branches and Boutons in the Adult Neocortex",

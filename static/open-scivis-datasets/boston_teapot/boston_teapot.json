@@ -14,6 +14,6 @@
     "sha512sum": "b2bf7ba8ba7a7d5a8ea76ccd8fd2c0f5f043079a83cd6a3055e85f5e0a40c1c4d872b9bbc7aedf628989eb57bffd5729767c29fe8ae018c581406b196caa6359",
     "description": "CT scan of the SIGGRAPH 1989 teapot with a small version of the AVS lobster inside.",
     "acknowledgement": "volvis.org and Terarecon Inc, MERL, Brigham and Women's Hospital",
-    "url": "https://klacansky.com/open-scivis-datasets/boston_teapot/boston_teapot_256x256x178_uint8.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/boston_teapot/boston_teapot_256x256x178_uint8.raw",
     "category": "CT"
 }

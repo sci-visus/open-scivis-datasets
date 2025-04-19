@@ -14,6 +14,6 @@
     "sha512sum": "b2a439541be1138f2d619199634861b3cb488fbce367fdd77c1fb225ab79c8f50ab9c66a98ef1866b7862d4e4743761ef50ef39e4bd0d6502c10a335d340a651",
     "description": "A microCT scan of dried wood branch (hazelnut).",
     "acknowledgement": "The Computer-Assisted Paleoanthropology group and the Visualization and MultiMedia Lab at University of Zurich (UZH)",
-    "url": "https://klacansky.com/open-scivis-datasets/woodbranch/woodbranch_2048x2048x2048_uint16.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/woodbranch/woodbranch_2048x2048x2048_uint16.raw",
     "category": "CT"
 }

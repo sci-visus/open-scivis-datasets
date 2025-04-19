@@ -14,7 +14,7 @@
     "sha512sum": "4d04ef902538c42e0dfce7c3ed873ef2d3952d3369db9a1f6bf551f51bf50fa65523eab01770daf84a80bbdf2b58d023ca2411838dbfee8a2fffb9b3f6c1fbb7",
     "description": "The first timestep of direct numerical simulation of an autoignition phenomena in stratified dimethyl-ether/air turbulent mixtures.",
     "acknowledgement": "Gaurav Bansal, Ajith Mascarenhas, and Jacqueline H. Chen.",
-    "url": "https://klacansky.com/open-scivis-datasets/hcci_oh/hcci_oh_560x560x560_float32.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/hcci_oh/hcci_oh_560x560x560_float32.raw",
     "bibtex": {
         "type": "article",
         "title": "Direct Numerical Simulations of Autoignition in Stratified Dimethyl-Ether (DME)/Air Turbulent Mixtures",

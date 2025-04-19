@@ -14,6 +14,6 @@
     "sha512sum": "afe80be8eebbc99501ce4fc0c2ef3c8bee3d641b3a5fe70603c89675237795d8032933e2b07872fecac198ef43148c3d7531e98deddfb729ba6e64cdcf625f04",
     "description": "Rotational angiography scan of a head with an aneurysm. Only contrasted blood vessels are visible.",
     "acknowledgement": "volvis.org and Michael Meißner, Viatronix Inc., USA",
-    "url": "https://klacansky.com/open-scivis-datasets/vertebra/vertebra_512x512x512_uint16.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/vertebra/vertebra_512x512x512_uint16.raw",
     "category": "CT"
 }

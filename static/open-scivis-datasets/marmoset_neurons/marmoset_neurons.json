@@ -14,6 +14,6 @@
     "sha512sum": "c13b2495e3ce2e0d7969ecf5316351a58e6aa8eeeaf23b22d0dc0b397ed22b51a5f88fd94e272a8a1add0414c69960406847b3b9e4854497a026e25e0d567e95",
     "description": "Pyramidal neurons in the marmoset primary visual cortex (V1) labeled with green fluorescent protein (GFP) after injection of a psuedotyped G-deleted rabies virus in area V2. The tissue was cleared using the Sca/e technique and imaged on a Olympus 2-photon microscope at 20x magnification.",
     "acknowledgement": "Frederick Federer, Moran Eye Institute, University of Utah",
-    "url": "https://klacansky.com/open-scivis-datasets/marmoset_neurons/marmoset_neurons_1024x1024x314_uint8.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/marmoset_neurons/marmoset_neurons_1024x1024x314_uint8.raw",
     "category": "Microscope"
 }

@@ -14,6 +14,6 @@
     "sha512sum": "1678f3bb3c088523372d0e879c923175a07b24493c411c8a65268cbdb82c28448539e3d1f25aa9263d62a2c0e80decb7499ce1ad6d6fe3943135c628295f83d6",
     "description": "Car part reconstructed from projections.",
     "acknowledgement": "Steffen Frey and Daimler AG",
-    "url": "https://klacansky.com/open-scivis-datasets/zeiss/zeiss_680x680x680_uint8.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/zeiss/zeiss_680x680x680_uint8.raw",
     "category": "CT"
 }

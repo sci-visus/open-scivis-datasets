@@ -14,6 +14,6 @@
     "sha512sum": "582d56df9be44d5d008f0df80ab61278f9edd8864da166653c4781c76fead4b5d35e6477210c78c85083f41f45438ad30898b7c8894964d08ab215a44c942d78",
     "description": "Temperature field of a direct numerical simulation of rotating stratified turbulence.",
     "acknowledgement": "The Johns Hopkins Turbulence Databases; Rosenberg, D., A. Pouquet, R. Marino, and P.D. Mininni. (2015) Evidence for Bolgiano-Obukhov scaling in rotating stratified turbulence using high-resolution direct numerical simulations. Physics of Fluids 27, 055105.",
-    "url": "https://klacansky.com/open-scivis-datasets/rotstrat_temperature/rotstrat_temperature_4096x4096x4096_float32.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/rotstrat_temperature/rotstrat_temperature_4096x4096x4096_float32.raw",
     "category": "Simulation"
 }

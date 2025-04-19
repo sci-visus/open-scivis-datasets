@@ -14,7 +14,7 @@
     "sha512sum": "d00f95d1f4cb1da2f3260a722059527ace73514cd57e1c31b6724d18468fd81002f5da704a0c3c7ccf06a329a975dede38cfacf13387dea9ffd8d7542cae62d0",
     "description": "Simulation of the spatial probability distribution of the electrons in a high potential protein molecule.",
     "acknowledgement": "volvis.org and VolVis distribution of SUNY Stony Brook, NY, USA",
-    "url": "https://klacansky.com/open-scivis-datasets/neghip/neghip_64x64x64_uint8.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/neghip/neghip_64x64x64_uint8.raw",
     "bibtex": {
         "type": "inproceedings",
         "title": "{VolVis}: A Diversified System for Volume Research and Development",

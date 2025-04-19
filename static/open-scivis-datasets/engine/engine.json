@@ -14,6 +14,6 @@
     "sha512sum": "f17228483b1b5edb90146eac90ba979531629a2880d9e7a0493a98290da8af6ac2cf80f2c567a3d08695dc7dd854916c861dad8856b2d5721501954e913de13f",
     "description": "CT scan of two cylinders of an engine block.",
     "acknowledgement": "volvis.org and General Electric",
-    "url": "https://klacansky.com/open-scivis-datasets/engine/engine_256x256x128_uint8.raw",
+    "url": "http://klacansky.com/open-scivis-datasets/engine/engine_256x256x128_uint8.raw",
     "category": "CT"
 }
